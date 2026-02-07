@@ -1,6 +1,23 @@
 <template>
-  <div>
-    <h1 class="text-3xl font-bold text-center mt-10">...Site en construction...</h1>
-    <div class="text-center">Revenz nous voir dans pas longtemps...</div>
+  <div class="relative h-screen w-full overflow-hidden">
+    <!-- C'est ici que la magie opère -->
+   <NuxtImg 
+  src="/images/hero.jpg" 
+  format="webp" 
+  quality="70" 
+  width="1920"  
+  loading="eager" 
+  fetchpriority="high"
+  class="absolute inset-0 h-full w-full object-cover" 
+/>
+
+    <!-- Ton contenu par-dessus -->
+    <div class="relative z-10 flex h-full items-center justify-center px-12 text-center bg-black bg-opacity-50">
+      <div class="text-5xl text-white">
+        <h1 class=" text-xl  ">« La liberté n'attend pas, mais notre site prend encore quelques virages.»</h1>
+        <p class="my-4">...Ouverture du site imminente...</p>
+        <p class="italic text-2xl">pour tous les passionnés de Van-Life.</p>
+      </div>
+    </div>
   </div>
 </template>
