@@ -1,0 +1,25 @@
+/* app/assets/css/main.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        /* Utilise la variable 'content' de ton tailwind.config.ts */
+        @apply bg-white text-content antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        /* Utilise la variable 'van-dark' de ton tailwind.config.ts */
+        @apply text-van-dark font-bold;
+    }
+
+    /* Pour que tous tes liens sur le site utilisent ton orange au survol automatiquement */
+    a {
+        @apply transition-colors duration-200 hover:text-primary;
+    }
+}
