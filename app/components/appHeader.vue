@@ -2,12 +2,20 @@
 import { ref } from 'vue'
 
 const isMenuOpen = ref(false)
+const route = useRoute() // Récupère la route actuelle
 
 const links = [
   { name: 'Accueil', href: '/' },
   { name: 'Réalisations', href: '/realisations' },
-  { name: 'Blog', href: '/blog' }, // Nouvelle page ajoutée ici
+  { name: 'Blog', href: '/blog' },
 ]
+
+// Fonction pour vérifier si un lien doit être affiché comme "actif"
+const isActive = (linkHref) => {
+  if (linkHref === '/') return route.path === '/'
+  // Si le lien commence par le href (ex: /blog/isolation contient /blog), on l'active
+  return route.path.startsWith(linkHref)
+}
 </script>
 
 <template>
@@ -26,7 +34,8 @@ const links = [
         <!-- NAVIGATION DESKTOP -->
         <div class="hidden md:flex space-x-10 items-center">
           <NuxtLink v-for="link in links" :key="link.name" :to="link.href"
-            class="nav-link text-sm font-bold text-slate-500 hover:text-primary transition-colors uppercase tracking-widest">
+            class="nav-link text-sm font-bold uppercase tracking-widest transition-colors"
+            :class="isActive(link.href) ? 'text-primary' : 'text-slate-500 hover:text-primary'">
             {{ link.name }}
           </NuxtLink>
 
@@ -53,7 +62,7 @@ const links = [
       <div v-if="isMenuOpen" class="md:hidden bg-white border-b border-gray-200 absolute w-full left-0 shadow-xl z-40">
         <div class="px-6 py-8 space-y-6 text-center font-bold">
           <NuxtLink v-for="link in links" :key="link.name" :to="link.href" @click="isMenuOpen = false"
-            class="block text-lg text-van-dark">
+            class="block text-lg transition-colors" :class="isActive(link.href) ? 'text-primary' : 'text-van-dark'">
             {{ link.name }}
           </NuxtLink>
           <NuxtLink to="/contact" @click="isMenuOpen = false"
@@ -67,11 +76,7 @@ const links = [
 </template>
 
 <style scoped>
-.nav-link.router-link-active:not([href="/"]),
-.nav-link.router-link-exact-active {
-  @apply text-primary;
-}
-
+/* Les styles pour le bouton contact restent inchangés */
 .contact-button.router-link-active {
   @apply bg-van-dark text-white;
 }

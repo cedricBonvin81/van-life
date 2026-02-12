@@ -4,7 +4,7 @@
     <header class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-900">
       <NuxtImg src="/images/manifeste_hero.jpg"
         class="absolute inset-0 w-full h-full object-cover opacity-70 scale-105 animate-slow-zoom"
-        alt="Horizon Van Life" fetchpriority="high" format="webp" quality="80" />
+        alt="un homme debout sur le van et regarde l'horizon" fetchpriority="high" format="webp" quality="80" />
 
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70"></div>
 
@@ -52,7 +52,7 @@
         class="image-reveal w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] my-32 h-[70vh] overflow-hidden">
         <NuxtImg src="/images/manifeste_1.jpg" format="webp" loading="lazy"
           class="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-110"
-          alt="Intérieur Van" />
+          alt="Intérieur Van avec vu sur la mer" />
         <div class="absolute inset-0 bg-black/10"></div>
       </div>
 
@@ -98,20 +98,49 @@
       </section>
 
       <!-- IMAGE 2 : LA ROUTE -->
-      <div :ref="setRevealRef" class="image-reveal my-32 overflow-hidden rounded-[3rem] shadow-2xl h-[500px] relative">
-        <NuxtImg src="/images/manifeste_2.jpg"
-          class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="Route infinie"
-          loading="lazy" format="webp" quality="80" />
+      <div :ref="setRevealRef"
+        class="image-reveal w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] my-32 h-[70vh] overflow-hidden">
+        <NuxtImg src="/images/manifeste_2.jpg" format="webp" loading="lazy"
+          class="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-110"
+          alt="une route forestière avec des arbres sur les cotés." />
+        <div class="absolute inset-0 bg-black/10"></div>
       </div>
 
-      <!-- CITATION MASSIVE -->
-      <div ref="reveals"
-        class="quote-anim bg-[#0f172a] p-16 md:p-24 rounded-[4rem] text-white my-32 text-center relative overflow-hidden shadow-3xl">
-        <p class="text-3xl md:text-4xl font-light italic leading-relaxed relative z-10">
-          "Le van est la seule machine à remonter le temps... Il nous ramène à une époque où le monde était vaste,
-          mystérieux et où chaque virage était une promesse."
-        </p>
+      <!-- Citation -->
+     
+      <div class="relative my-24 md:my-48 max-w-[850px] mx-auto px-6 md:px-0">
+
+        <!-- GUILLEMET OUVRANT : Responsive -->
+        <span class="absolute z-20 text-primary pointer-events-none select-none font-serif
+               top-[-30px] left-[-5px] text-[8rem] 
+               md:top-[-60px] md:left-[-30px] md:text-[15rem] leading-none"
+          style="filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
+          “
+        </span>
+
+        <!-- LE BLOC : Dégradé radial & Coins arrondis -->
+        <div ref="reveals"
+          class="relative z-10 p-10 md:p-24 rounded-[2.5rem] md:rounded-[4rem] text-white text-center shadow-2xl border border-white/5 overflow-hidden"
+          style="background: radial-gradient(circle at center, #2e3c51 0%, #111827 100%);">
+
+          <!-- Lueur interne -->
+          <div class="absolute inset-0 bg-primary/5"></div>
+
+          <p class="text-xl md:text-4xl font-light italic leading-relaxed relative z-10 text-white px-2 md:px-12">
+            "Le van est la seule machine à remonter le temps... Il nous ramène à une époque où le monde était vaste,
+            mystérieux et où chaque virage était une promesse."
+          </p>
+        </div>
+
+        <!-- GUILLEMET FERMANT : Responsive -->
+        <span class="absolute z-20 text-primary pointer-events-none select-none font-serif
+               bottom-[-40px] right-[-5px] text-[8rem] 
+               md:bottom-[-80px] md:right-[-30px] md:text-[15rem] leading-none"
+          style="filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
+          ”
+        </span>
       </div>
+
 
       <!-- CHAPITRE 4 : LA NUIT -->
       <section :ref="setChapterRef" class="chapter-section mb-32">
@@ -147,7 +176,7 @@
         <p ref="reveals" class="text-2xl text-slate-400 font-light mb-16 italic">"La route n'est pas entre deux points,
           elle est en vous."</p>
         <NuxtLink to="/contact"
-          class="inline-block bg-primary text-white px-16 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-110 transition-transform shadow-2xl">
+          class="inline-block bg-primary text-white px-16 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-110 hover:text-white transition-transform shadow-2xl">
           Écrire mon histoire
         </NuxtLink>
       </div>

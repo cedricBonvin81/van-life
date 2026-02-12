@@ -8,12 +8,9 @@
             <ul class="flex flex-nowrap md:flex-wrap gap-4 md:justify-center items-center">
                 <li v-for="item in categories" :key="item.path" class="flex-none">
                     <NuxtLink :to="item.path"
-                        class="px-4 py-2 rounded-full transition-all duration-300 border text-[12px] sm:text-xs tracking-widest uppercase inline-block whitespace-nowrap"
-                        :class="[
-                            $route.path === item.path
-                                ? 'bg-black !text-white border-black shadow-lg shadow-black/10'
-                                : 'bg-transparent text-gray-900 border-transparent hover:text-black'
-                        ]">
+                        class="px-4 py-2 rounded-full transition-all duration-300 border text-[12px] sm:text-xs tracking-widest uppercase inline-block whitespace-nowrap border-transparent text-gray-900 hover:text-black"
+                        active-class="bg-black !text-white border-black shadow-lg shadow-black/10"
+                        :exact="item.path === '/blog'">
                         {{ item.name }}
                     </NuxtLink>
                 </li>
@@ -22,21 +19,11 @@
     </nav>
 </template>
 
-<style scoped>
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-</style>
-
 <script setup>
 import { useScroll } from '@vueuse/core'
 import { ref, watch, computed } from 'vue'
 
+// Liste des catégories pour van-life.ch
 const categories = [
     { name: 'Manifeste', path: '/blog' },
     { name: 'News', path: '/blog/news' },
@@ -45,26 +32,49 @@ const categories = [
     { name: 'Eau', path: '/blog/eau' },
 ]
 
+// Utilisation de VueUse pour suivre le scroll de la fenêtre
 const { y } = useScroll(window)
 const isVisible = ref(true)
 
-// Logique simplifiée : Pas de timer, elle obéit juste au mouvement
+// Watcher pour gérer l'affichage/masquage au scroll
 watch(y, (currentY, previousY) => {
-    // 1. Toujours visible en haut de page
+    // 1. Toujours visible si on est en haut (seuil de 100px)
     if (currentY < 100) {
         isVisible.value = true
         return
     }
 
-    // 2. On descend : on cache
-    if (currentY > previousY + 2) {
+    // 2. Se cache si on descend (scroll down)
+    if (currentY > previousY + 5) {
         isVisible.value = false
     }
-    // 3. On remonte : on montre (elle reste là tant qu'on ne redescend pas)
-    else if (currentY < previousY - 2) {
+    // 3. Réapparaît si on remonte (scroll up)
+    else if (currentY < previousY - 5) {
         isVisible.value = true
     }
-}, { immediate: true })
+})
 
 const shouldHide = computed(() => !isVisible.value)
 </script>
+
+<style scoped>
+/* Masque la barre de défilement tout en gardant la fonctionnalité de scroll */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE et Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Optionnel : Ajoute un léger fondu sur les bords du scroll mobile */
+@media (max-width: 768px) {
+    .overflow-x-auto {
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+}
+</style>
