@@ -1,26 +1,18 @@
 <template>
     <div class="bg-white min-h-screen">
-        <section class="relative h-[70vh] flex items-center justify-center bg-black overflow-hidden">
-            <div class="relative z-10 text-center px-6">
-                <h1
-                    class="hero-title text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter text-shadow-xl">
-                    L'énergie <br /> Nomade
-                </h1>
-                <p class="hero-subtitle text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
-                    Maîtrisez votre autonomie pour voyager sans limites, du panneau solaire au parc batterie.
-                </p>
-            </div>
-        </section>
-
-        <section class="py-24 max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-6 uppercase tracking-widest text-van-dark">L'indépendance électrique</h2>
-            <p class="text-gray-600 text-lg leading-relaxed">
+        
+      <BlogHero
+            title="L'énergie <br> <span class='text-primary'>Nomade</span>"
+            hero-text="Maîtrisez votre autonomie pour voyager sans limites, du panneau solaire au parc batterie."
+            intro-title="L'indépendance électrique"
+        >
+            <template #intro-text>
                 L'électricité est le cœur battant de votre aménagement. Elle alimente vos besoins essentiels :
                 conserver vos aliments au frais, vous éclairer et recharger vos équipements.
                 Parce que chaque voyageur a des besoins différents, nous définissons ensemble la configuration idéale
                 entre <span class="text-primary font-bold">consommation, stockage et production</span>.
-            </p>
-        </section>
+            </template>
+        </BlogHero>
 
         <section class="bg-gray-50 py-32 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
@@ -175,53 +167,25 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-definePageMeta({ layout: 'blog' })
+// 1. On importe notre fonction du composable
+const { initHeroAnim } = useBlogAnimations()
 
 let ctx;
 
 onMounted(() => {
     if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
-
+        // 2. On initialise le contexte GSAP
         ctx = gsap.context(() => {
-            // Hero (Toujours animé, c'est le haut de page)
-            gsap.from(".hero-title", { opacity: 0, y: 50, duration: 1, ease: "power3.out" })
-            gsap.from(".hero-subtitle", { opacity: 0, y: 20, duration: 1, delay: 0.3 })
-
-            // On n'anime QUE les blocs électriques qui ont des images
-            const sections = [
-                { img: ".elec-img-1", txt: ".elec-text-1" },
-                { img: ".elec-img-2", txt: ".elec-text-2" },
-                { img: ".elec-img-3", txt: ".elec-text-3" },
-                { img: ".elec-img-4", txt: ".elec-text-4" }
-            ]
-
-            sections.forEach((s, i) => {
-                // Animation Image
-                gsap.from(s.img, {
-                    opacity: 0,
-                    x: i % 2 === 0 ? -50 : 50,
-                    duration: 1,
-                    scrollTrigger: { trigger: s.img, start: "top 85%", toggleActions: "play none none none" }
-                })
-                // Animation Texte
-                gsap.from(s.txt, {
-                    opacity: 0,
-                    x: i % 2 === 0 ? 50 : -50,
-                    duration: 1,
-                    scrollTrigger: { trigger: s.txt, start: "top 85%", toggleActions: "play none none none" }
-                })
-            })
+            initHeroAnim()
         })
-
-        // On force le rafraîchissement au F5
-        setTimeout(() => ScrollTrigger.refresh(), 500)
     }
 })
 
-onUnmounted(() => { if (ctx) ctx.revert() })
+// 3. On nettoie pour éviter les fuites de mémoire
+onUnmounted(() => {
+    if (ctx) ctx.revert()
+})
 </script>
 
 <style scoped>
