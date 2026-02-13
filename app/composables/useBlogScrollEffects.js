@@ -38,5 +38,35 @@ export const useBlogAnimations = () => {
         })
     }
 
-    return { initHeroAnim, initScrollAnim }
+    // ANIMATION OUTRO
+   
+    const initOutroAnim = (selector) => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: selector,
+                start: "top 80%",
+            }
+        })
+
+        tl.from(`${selector} h2`, {
+            x: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        })
+            .from(`${selector} .outro-text`, {
+                x: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            }, "-=0.8")
+            .from(`${selector} a`, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "back.out(1.7)"
+            }, "-=0.6")
+    }
+
+    return { initHeroAnim, initScrollAnim, initOutroAnim }
 }
