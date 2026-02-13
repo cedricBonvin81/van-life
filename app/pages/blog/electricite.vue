@@ -167,22 +167,44 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-// 1. On importe notre fonction du composable
-const { initHeroAnim } = useBlogAnimations()
-
+const { initHeroAnim, initScrollAnim } = useBlogAnimations()
 let ctx;
 
 onMounted(() => {
     if (process.client) {
-        // 2. On initialise le contexte GSAP
+        gsap.registerPlugin(ScrollTrigger)
+
         ctx = gsap.context(() => {
+            // 1. Animation d'entrée
             initHeroAnim()
+
+            // Bloc 1 : Image à GAUCHE (vient de gauche), Texte à DROITE (vient de droite)
+            initScrollAnim(".elec-img-1", 'left')
+            initScrollAnim(".elec-text-1", 'right')
+
+            // Bloc 2 : Texte à GAUCHE (vient de gauche), Image à DROITE (vient de droite)
+            initScrollAnim(".elec-text-2", 'left')
+            initScrollAnim(".elec-img-2", 'right')
+
+            // Bloc 3 : Image à GAUCHE (vient de gauche), Texte à DROITE (vient de droite)
+            // C'est ici qu'on corrige :
+            initScrollAnim(".elec-img-3", 'left')
+            initScrollAnim(".elec-text-3", 'right')
+
+            // Bloc 4 : Texte à GAUCHE (vient de gauche), Image à DROITE (vient de droite)
+            initScrollAnim(".elec-text-4", 'left')
+            initScrollAnim(".elec-img-4", 'right')
         })
+
+        // Petit délai de sécurité pour que le calcul des positions soit parfait
+        setTimeout(() => {
+            ScrollTrigger.refresh()
+        }, 500)
     }
 })
 
-// 3. On nettoie pour éviter les fuites de mémoire
 onUnmounted(() => {
     if (ctx) ctx.revert()
 })
