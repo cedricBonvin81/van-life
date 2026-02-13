@@ -2,9 +2,6 @@
     <div class="bg-white min-h-screen">
         <!-- HERO : L'immersion -->
         <section class="relative h-[70vh] flex items-center justify-center bg-black overflow-hidden">
-            <img src="https://picsum.photos"
-                class="absolute inset-0 w-full h-full object-cover opacity-60 scale-110 hero-img" />
-
             <div class="relative z-10 text-center px-6">
                 <h1
                     class="hero-title text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter opacity-0">
