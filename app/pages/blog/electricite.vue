@@ -14,7 +14,51 @@
             </template>
         </BlogHero>
 
-        <section class="bg-gray-50 py-32 overflow-hidden">
+        <BlogSection :index="1" title="Batteries Lithium LiFePO4" image="images/electricite_batterie.webp"
+            badge="01 — Le Stockage" badgeColor="text-orange-500" checkBgColor="bg-orange-100 text-orange-500"
+            :features="['Compatible Induction', 'Poids Réduit']">
+            <template #content>
+                Le Lithium est devenu le standard pour l'autonomie. Plus légère et capable de supporter des
+                décharges profondes, c'est la solution idéale pour stocker un maximum d'énergie. Nous
+                privilégions cette technologie pour permettre l'usage de <strong>plaques à
+                    induction</strong>, offrant un confort de cuisson moderne avec un parc batterie
+                dimensionné en conséquence.
+            </template>          
+        </BlogSection>
+
+         <BlogSection :index="2" :reverse="true" :bg-gray=true title="Panneaux Solaires" image="images/electricite_panneaux.png"
+            badge="02 — L'Electricité" badgeColor="text-blue-500" checkBgColor="bg-blue-100 text-blue-600"
+            :features="['Énergie propre et silencieuse', 'Régulateur MPPT haute efficacité<']">
+            <template #content>
+                Pour prolonger vos arrêts en pleine nature, le solaire est indispensable. Qu'ils soient rigides
+                ou flexibles pour épouser le toit de votre van, les panneaux transforment chaque rayon en
+                précieux ampères pour maintenir votre charge sans avoir à démarrer le moteur.
+            </template>
+        </BlogSection>
+
+        <BlogSection :index="3" :reverse="false" :bgGray="false" title="Chargeur Booster DC/DC"
+            image="images/electricite_booster.jpg" badge="03 — La Recharge" badgeColor="text-green-600"
+            checkBgColor="bg-green-100 text-green-600"
+            :features="['Charge rapide en roulant', 'Protection Alternateur Smart']">
+            <template #content>
+                Le booster DC/DC, comme le <strong>Victron Orion</strong>, utilise l'alternateur de votre véhicule pour
+                injecter une charge stable et rapide dans votre parc batterie dès que vous roulez. C'est le complément
+                parfait du solaire pour garantir une autonomie totale.
+            </template>
+        </BlogSection>
+
+        <BlogSection :index="4" :reverse="true" :bgGray="true" title="Convertisseur 12V / 230V"
+            image="images/electricite_convertisseur.png" badge="04 — La Conversion" badgeColor="text-purple-500"
+            checkBgColor="bg-purple-100 text-purple-600"
+            :features="['Onde Pur Sinus haute fidélité', 'Usage Induction & 230V']">
+            <template #content>
+                Pour transformer l'énergie de vos batteries et alimenter vos équipements domestiques, l'installation
+                d'un convertisseur pur sinus est indispensable. C'est lui qui permet l'usage de vos <strong>plaques à
+                    induction</strong> avec la même stabilité qu'à la maison.
+            </template>
+        </BlogSection>
+
+        <!-- <section class="bg-gray-50 py-32 overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-20 items-center">
                     <div class="elec-img-1 rounded-[2rem] overflow-hidden soft-mask">
@@ -147,7 +191,7 @@
                         loading="lazy" />
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="py-32 max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-6 tracking-tighter uppercase text-van-dark">Dimensionnons votre autonomie
