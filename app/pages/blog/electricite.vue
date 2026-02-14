@@ -23,7 +23,11 @@
             </template>
         </BlogSection>
 
-        <BlogOutro title="Dimensionnons votre autonomie" buttonText="Parlons de votre projet" link="/contact">
+        <BlogOutro 
+            iconName="lucide:zap" 
+            title="Dimensionnons votre autonomie" 
+            buttonText="Parlons de votre projet" 
+            link="/contact">
             Chaque voyageur a des besoins différents. Nous définissons votre installation sur mesure pour que l'énergie
             ne soit jamais un frein à vos aventures.
         </BlogOutro>
@@ -97,13 +101,13 @@ onMounted(() => {
                 const isEven = index % 2 === 0 // Pair ou impair pour décider du côté
 
                 if (!isEven) {
-                    // Impair (1, 3, 5...) : Image à gauche, Texte à droite
-                    initScrollAnim(`.elec-img-${index}`, 'left')
-                    initScrollAnim(`.elec-text-${index}`, 'right')
+                    // Section Impaire : Image à gauche (vient de gauche), Texte à droite (vient de droite)
+                    initScrollAnim(`.section-img-${index}`, 'left')
+                    initScrollAnim(`.section-text-${index}`, 'right')
                 } else {
-                    // Pair (2, 4, 6...) : Texte à gauche, Image à droite
-                    initScrollAnim(`.elec-text-${index}`, 'left')
-                    initScrollAnim(`.elec-img-${index}`, 'right')
+                    // Section Paire : Texte à gauche, Image à droite
+                    initScrollAnim(`.section-text-${index}`, 'left')
+                    initScrollAnim(`.section-img-${index}`, 'right')
                 }
             })
 

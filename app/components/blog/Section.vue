@@ -4,7 +4,7 @@
             <div class="grid md:grid-cols-2 gap-20 items-center">
 
                 <div :class="[
-                    `elec-img-${index}`,
+                    `section-img-${index}`,
                     'rounded-[2rem] overflow-hidden soft-mask aspect-video',
                     'order-2',
                     reverse ? 'md:order-2' : 'md:order-1'
@@ -15,7 +15,7 @@
                 </div>
 
                 <div :class="[
-                    `elec-text-${index}`,
+                    `section-text-${index}`,
                     'order-1',
                     reverse ? 'md:order-1 text-left' : 'md:order-2 text-left md:text-right'
                 ]">

@@ -60,7 +60,7 @@ export const useBlogAnimations = () => {
                 duration: 1,
                 ease: "power2.out"
             }, "-=0.8")
-            .from(`${selector} a`, {
+            .from(`${selector} .btn-gsap`, {
                 y: 50,
                 opacity: 0,
                 duration: 1,
