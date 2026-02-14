@@ -17,7 +17,10 @@
 
         <!-- SECTION -->
         <BlogSection v-for="(value, index) in sections" :key="value.title" v-bind="value" :index="index + 1"
-            :reverse="index % 2 === 1" :bg-gray="index % 2 === 1">
+            :reverse="index % 2 === 1" :bg-gray="index % 2 === 1"
+            :badge-color="`text-${themeColor}`"
+            :theme-color="themeColor"
+            >
             <template #content>
                 <p v-html="value.text"></p>
             </template>
@@ -43,6 +46,7 @@ definePageMeta({
     layout: 'blog'
 })
 
+const themeColor = "#f97316" // Orange-500 de Tailwind, tu peux ajuster selon ta palette
 // CONTENT 
 
 const sections = [
@@ -51,8 +55,6 @@ const sections = [
         text: "Le Lithium est devenu le standard pour l'autonomie. Plus légère et capable de supporter des décharges profondes, c'est la solution idéale pour stocker un maximum d'énergie. Nous privilégions cette technologie pour permettre l'usage de plaques à induction, offrant un confort de cuisson moderne avec un parc batterie dimensionné en conséquence.",
         image: "/images/electricite_batterie.webp",
         badge: "01 — Le Stockage",
-        badgeColor: "text-orange-500",
-        checkBgColor: "bg-orange-100 text-orange-500",
         features: ['Compatible Induction', 'Poids Réduit']
     },
     {
@@ -60,8 +62,6 @@ const sections = [
         text: "Pour prolonger vos arrêts en pleine nature, le solaire est indispensable. Qu'ils soient rigides ou flexibles pour épouser le toit de votre van, les panneaux transforment chaque rayon en précieux ampères pour maintenir votre charge sans avoir à démarrer le moteur.",
         image: "/images/electricite_panneaux.png",
         badge: "02 — L'Electricité",
-        badgeColor: "text-blue-500",
-        checkBgColor: "bg-blue-100 text-blue-600",
         features: ['Énergie propre et silencieuse', 'Régulateur MPPT haute efficacité']
     },
     {
@@ -69,8 +69,6 @@ const sections = [
         text: "Le booster DC/DC, comme le Victron Orion, utilise l'alternateur de votre véhicule pour injecter une charge stable et rapide dans votre parc batterie dès que vous roulez. C'est le complément parfait du solaire pour garantir une autonomie totale.",
         image: "/images/electricite_booster.jpg",
         badge: "03 — La Recharge",
-        badgeColor: "text-green-600",
-        checkBgColor: "bg-green-100 text-green-600",
         features: ['Charge rapide en roulant', 'Protection Alternateur Smart']
     },
     {
@@ -78,8 +76,6 @@ const sections = [
         text: "Pour transformer l'énergie de vos batteries et alimenter vos équipements domestiques, l'installation d'un convertisseur pur sinus est indispensable. C'est lui qui permet l'usage de vos plaques à induction avec la même stabilité qu'à la maison.",
         image: "/images/electricite_convertisseur.png",
         badge: "04 — La Conversion",
-        badgeColor: "text-purple-500",
-        checkBgColor: "bg-purple-100 text-purple-600",
         features: ['Onde Pur Sinus haute fidélité', 'Usage Induction & 230V']
     }       
 ]

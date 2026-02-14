@@ -9,9 +9,8 @@
                     'order-2',
                     reverse ? 'md:order-2' : 'md:order-1'
                 ]">
-                    <NuxtImg :src="image" format="webp" :alt="title" loading="lazy" quality="80" sizes="sm:100vw md:50vw" placeholder 
-                        class="w-full h-full object-cover" 
-                    />
+                    <NuxtImg :src="image" format="webp" :alt="title" loading="lazy" quality="80"
+                        sizes="sm:100vw md:50vw" placeholder class="w-full h-full object-cover" />
                 </div>
 
                 <div :class="[
@@ -19,7 +18,7 @@
                     'order-1',
                     reverse ? 'md:order-1 text-left' : 'md:order-2 text-left md:text-right'
                 ]">
-                    <span :class="['font-bold tracking-widest text-xs uppercase mb-4 block', badgeColor]">
+                    <span class="font-bold tracking-widest text-xs uppercase mb-4 block" :style="{ color: themeColor }">
                         {{ badge }}
                     </span>
                     <h2 class="text-4xl font-bold mb-8 tracking-tight text-van-dark">{{ title }}</h2>
@@ -32,8 +31,11 @@
                         <div v-for="feature in features" :key="feature"
                             :class="['flex items-center gap-3', !reverse ? 'flex-row md:flex-row-reverse' : 'flex-row']">
 
-                            <div
-                                :class="['w-5 h-5 rounded-full flex items-center justify-center text-[10px] shrink-0', checkBgColor]">
+                            <div class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] shrink-0"
+                                :style="{
+                                    backgroundColor: themeColor + '2a', // ~16% opacité
+                                    color: themeColor
+                                }">
                                 ✓
                             </div>
 
@@ -55,8 +57,10 @@ defineProps({
     title: String,
     image: String,
     badge: String,
-    badgeColor: String,
-    checkBgColor: String,
+    themeColor: {
+        type: String,
+        default: '#f97316' // Orange par défaut si on oublie de la passer
+    },
     reverse: Boolean,
     bgGray: Boolean,
     features: Array

@@ -26,11 +26,13 @@
 <script setup>
 
     defineProps({
-        title: String,
-        heroText: String,
-        introTitle: String,
-    });
+    title: String,
+    heroText: String,
+    introTitle: String,
+    mainColor: String 
+})
 </script>
+
 
 <style scoped>
 .text-shadow-xl {

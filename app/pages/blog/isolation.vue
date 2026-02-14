@@ -1,20 +1,22 @@
 <template>
     <div class="bg-white min-h-screen">
 
-        <BlogHero title="L'enveloppe <br> <span class='text-primary'>Thermique</span>"
+        <BlogHero title="L'enveloppe <br> <span class='text-cyan-600'>Thermique</span>"
             hero-text="Le secret d'un van sain : une barrière haute performance contre le froid, le bruit et l'humidité."
             intro-title="Le confort en toute saison">
             <template #intro-text>
                 L'isolation est la base invisible mais cruciale de votre aménagement. Elle ne se contente pas de vous
-                protéger des températures extrêmes ; elle assure la <span class="text-primary font-bold">pérennité de
+                protéger des températures extrêmes ; elle assure la <span class="text-cyan-600 font-bold">pérennité de
                     votre carrosserie</span> en gérant la condensation.
                 Nous utilisons des matériaux techniques adaptés aux contraintes du voyage pour créer un cocon <span
-                    class="text-primary font-bold">sain, silencieux et durable</span>.
+                    class="text-cyan-600 font-bold">sain, silencieux et durable</span>.
             </template>
         </BlogHero>
 
         <BlogSection v-for="(value, index) in sections" :key="value.title" v-bind="value" :index="index + 1"
-            :reverse="index % 2 === 1" :bg-gray="index % 2 === 1">
+            :reverse="index % 2 === 1" :bg-gray="index % 2 === 1"
+            :theme-color="themeColor"
+            >
             <template #content>
                 <p v-html="value.text"></p>
             </template>
@@ -37,9 +39,12 @@ import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+
 definePageMeta({
     layout: 'blog'
 })
+
+const themeColor = "#0891b2" // Cyan-600 de Tailwind, tu peux ajuster selon ta palette
 
 // CONTENT : Tes textes originaux, strictement inchangés
 const sections = [
@@ -48,8 +53,6 @@ const sections = [
         text: "Nous utilisons exclusivement l'Armaflex AF. Sa structure à cellules fermées garantit une isolation thermique de haute performance et une protection acoustique supérieure pendant le trajet.",
         image: "/images/isolation_armaflex.png",
         badge: "01 — Barrière Thermique",
-        badgeColor: "text-blue-500",
-        checkBgColor: "bg-blue-100 text-blue-600",
         features: ['Cellules fermées', 'Classe O']
     },
     {
@@ -57,8 +60,6 @@ const sections = [
         text: "Contrairement à l'isolation classique, le liège projeté épouse les moindres recoins de la carrosserie. C'est la seule solution efficace pour <strong>supprimer les ponts thermiques</strong> et stopper net la condensation sur la tôle.",
         image: "/images/isolation_liege.png",
         badge: "02 — Anti-condensation",
-        badgeColor: "text-orange-500",
-        checkBgColor: "bg-orange-100 text-orange-600",
         features: ['Régulation naturelle de l\'humidité', 'Inodore et imputrescible']
     },
     {
@@ -66,8 +67,6 @@ const sections = [
         text: "Selon votre projet, nous proposons l'utilisation de laines naturelles comme la <strong>laine de mouton</strong> ou de <strong>chanvre</strong>. Cette solution peut être utilisée seule ou en complément du liège projeté pour recouvrir les parois et passer par-dessus les renforts. Au-delà de ses propriétés isolantes, elle est appréciée pour son aspect biosourcé et sain.",
         image: "/images/isolation_mouton.jpeg",
         badge: "03 — Polyvalence",
-        badgeColor: "text-green-600",
-        checkBgColor: "bg-green-100 text-green-600",
         features: ['Matériaux biosourcés', 'Application Mixte']
     }
 ]
