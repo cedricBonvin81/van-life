@@ -1,5 +1,5 @@
 <template>
-    <section class="relative bg-transparent  md:py-40 px-6 overflow-hidden">
+    <section class="relative bg-transparent  py-40 md:py-40 px-6 overflow-hidden">
         <div class="max-w-4xl mx-auto">
             <div class="flex items-center gap-4 mb-12 reveal-up">
                 <div class="w-12 h-px bg-primary"></div>
