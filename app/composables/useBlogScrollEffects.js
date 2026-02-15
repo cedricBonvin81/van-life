@@ -1,28 +1,27 @@
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export const useBlogAnimations = () => {
+    // On enregistre le plugin ici aussi par sécurité
+    gsap.registerPlugin(ScrollTrigger)
 
-    // ANIMATION HERO
     const initHeroAnim = () => {
         const tl = gsap.timeline()
-
         tl.from(".hero-title", {
             opacity: 0,
             y: 50,
             duration: 1.2,
             ease: "power4.out"
         })
-        .from(".hero-subtitle", {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            ease: "power2.out"
-        }, "-=0.8") // Démarre un peu avant la fin du titre pour plus de fluidité
+            .from(".hero-subtitle", {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                ease: "power2.out"
+            }, "-=0.8")
     }
 
-    // ANIMATION SCROLL
     const initScrollAnim = (el, direction = 'left') => {
-        // On définit le point de départ selon la direction
         const xOffset = direction === 'left' ? -100 : 100
 
         gsap.from(el, {
@@ -31,39 +30,44 @@ export const useBlogAnimations = () => {
             duration: 1.2,
             ease: "power2.out",
             scrollTrigger: {
-                trigger: el,      // L'élément qui déclenche l'anim
-                start: "top 85%", // Déclenche quand le haut de l'élément atteint 85% de la hauteur de l'écran
-                toggleActions: "play none none none" // Joue une seule fois
+                trigger: el,
+                start: "top 90%", // Un peu plus bas pour laisser de la marge
+                toggleActions: "play none none none",
+                // On ajoute ceci pour éviter les sauts :
+                invalidateOnRefresh: true,
+                fastScrollEnd: true
             }
         })
     }
 
-    // ANIMATION OUTRO
-   
     const initOutroAnim = (selector) => {
+        // On vérifie si l'élément existe avant de lancer
+        if (!document.querySelector(selector)) return
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: selector,
-                start: "top 80%",
+                start: "top 85%",
+                invalidateOnRefresh: true
             }
         })
 
         tl.from(`${selector} h2`, {
-            x: -100,
+            x: -50, // Moins violent que 100 pour éviter les bugs de largeur
             opacity: 0,
             duration: 1,
             ease: "power2.out"
         })
             .from(`${selector} .outro-text`, {
-                x: 100,
+                x: 50,
                 opacity: 0,
                 duration: 1,
                 ease: "power2.out"
             }, "-=0.8")
             .from(`${selector} .btn-gsap`, {
-                y: 50,
+                y: 30,
                 opacity: 0,
-                duration: 1,
+                duration: 0.8,
                 ease: "back.out(1.7)"
             }, "-=0.6")
     }

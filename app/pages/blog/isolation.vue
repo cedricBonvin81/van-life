@@ -1,12 +1,12 @@
 <template>
     <div class="bg-white min-h-screen">
 
-        <BlogHero title="L'enveloppe <br> <span class='text-cyan-600'>Thermique</span>"
+        <BlogHero title="L'enveloppe <br> <span style='color: #0891b2'>Thermique</span>"
             hero-text="Le secret d'un van sain : une barrière haute performance contre le froid, le bruit et l'humidité."
             intro-title="Le confort en toute saison">
             <template #intro-text>
                 L'isolation est la base invisible mais cruciale de votre aménagement. Elle ne se contente pas de vous
-                protéger des températures extrêmes ; elle assure la <span class="text-cyan-600 font-bold">pérennité de
+                protéger des températures extrêmes ; elle assure la <span style="color: #0891b2;" class="font-bold">pérennité de
                     votre carrosserie</span> en gérant la condensation.
                 Nous utilisons des matériaux techniques adaptés aux contraintes du voyage pour créer un cocon <span
                     class="text-cyan-600 font-bold">sain, silencieux et durable</span>.
@@ -76,23 +76,24 @@ const { initHeroAnim, initScrollAnim, initOutroAnim } = useBlogAnimations()
 let ctx;
 
 onMounted(() => {
+    // 1. On s'assure que le code ne tourne que côté client
     if (process.client) {
         gsap.registerPlugin(ScrollTrigger)
 
         ctx = gsap.context(() => {
+            // 2. On lance l'animation Hero immédiatement
             initHeroAnim()
-
-            // Boucle d'animation identique à elec.vue
+            ScrollTrigger.refresh()
+            
+            // 3. On boucle sur les sections
             sections.forEach((_, i) => {
                 const index = i + 1
                 const isEven = index % 2 === 0
 
                 if (!isEven) {
-                    // Section Impaire : Image à gauche (vient de gauche), Texte à droite (vient de droite)
                     initScrollAnim(`.section-img-${index}`, 'left')
                     initScrollAnim(`.section-text-${index}`, 'right')
                 } else {
-                    // Section Paire : Texte à gauche, Image à droite
                     initScrollAnim(`.section-text-${index}`, 'left')
                     initScrollAnim(`.section-img-${index}`, 'right')
                 }
@@ -101,14 +102,21 @@ onMounted(() => {
             initOutroAnim(".outro-section")
         })
 
+        // 4. LE FIX : On force ScrollTrigger à recalculer après un court délai
+        // Cela permet au DOM et aux images de prendre leur place finale
         setTimeout(() => {
             ScrollTrigger.refresh()
-        }, 500)
+        }, 2000)
+
+        // 5. Sécurité supplémentaire : refresh au chargement complet
+        window.addEventListener('load', () => ScrollTrigger.refresh())
     }
 })
 
 onUnmounted(() => {
     if (ctx) ctx.revert()
+    // Nettoyage des événements pour éviter les fuites mémoire
+    window.removeEventListener('load', () => ScrollTrigger.refresh())
 })
 </script>
 

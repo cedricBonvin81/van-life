@@ -2,7 +2,7 @@
     <div>
         <section class="relative h-[70vh] flex items-center justify-center bg-black overflow-hidden" >
             <div class="relative z-10 text-center px-6">
-                <h1 class="hero-title text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter text-shadow-xl"
+                <h1 class="hero-title text-4xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter text-shadow-xl"
                     v-html="title"
                 >
                 </h1>

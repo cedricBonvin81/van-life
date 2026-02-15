@@ -27,9 +27,11 @@ import { ref, watch, computed } from 'vue'
 const categories = [
     { name: 'Manifeste', path: '/blog' },
     { name: 'News', path: '/blog/news' },
-    { name: 'Électricité', path: '/blog/electricite' },
+    { name: 'Aménagement', path: '/blog/amenagement' },
     { name: 'Isolation', path: '/blog/isolation' },
-    { name: 'Eau', path: '/blog/eau' },
+    { name: 'Électricité', path: '/blog/electricite' },
+    { name: 'Sanitaire', path: '/blog/sanitaire' },
+
 ]
 
 // Utilisation de VueUse pour suivre le scroll de la fenêtre
