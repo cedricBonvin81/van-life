@@ -3,6 +3,9 @@
     <PagesIndexHero class="relative" />
 
     <PagesIndexManifesteApercu class="relative " />
+    <PagesIndexGalerie1 class="relative " />
+    <PagesIndexPourquoi class="relative " />
+    <PagesIndexGalerie2 class="relative " />
   </main>
 </template>
 
