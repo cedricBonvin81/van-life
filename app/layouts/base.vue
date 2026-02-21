@@ -8,5 +8,6 @@
         <main>
             <slot /> <!-- OBLIGATOIRE -->
         </main>
+        <AppFooter />
     </div>
 </template>

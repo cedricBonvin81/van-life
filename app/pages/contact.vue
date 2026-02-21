@@ -7,17 +7,17 @@ if (process.client) {
     gsap.registerPlugin(ScrollTrigger)
 }
 
-useSeoMeta({
-    title: 'Contact | Atelier d\'Aménagement Van Life en Suisse',
-    description: 'Projet d\'aménagement sur mesure, pose de fenêtres ou conseil technique ? Contactez notre atelier à La Place (Valais) pour votre utilitaire.',
-    ogTitle: 'Parlons de votre projet Van Life | Atelier Suisse',
-    ogDescription: 'De la conception à la réalisation, transformez votre van en cocon nomade.',
-    ogImage: '/images/contact.jpg',
-})
+// useSeoMeta({
+//     title: 'Contact | Atelier d\'Aménagement Van Life en Suisse',
+//     description: 'Projet d\'aménagement sur mesure, pose de fenêtres ou conseil technique ? Contactez notre atelier à La Place (Valais) pour votre utilitaire.',
+//     ogTitle: 'Parlons de votre projet Van Life | Atelier Suisse',
+//     ogDescription: 'De la conception à la réalisation, transformez votre van en cocon nomade.',
+//     ogImage: '/images/contact.jpg',
+// })
 
-definePageMeta({
-    layout: 'base'
-})
+// definePageMeta({
+//     layout: 'base'
+// })
 
 const form = ref({
     name: '',

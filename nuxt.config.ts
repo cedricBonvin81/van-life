@@ -4,4 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/icon', '@vueuse/nuxt'],
   css: ['~/assets/css/main.css'],
+  app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Space+Mono&display=swap' }
+      ]
+    }
+  },
 })

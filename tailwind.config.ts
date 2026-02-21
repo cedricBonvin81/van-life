@@ -10,7 +10,12 @@ export default <Partial<Config>> {
         },
         'van-dark': '#0f172a', // Pour les titres (Slate-900)
         content: '#334155',    // Pour le texte de base (Slate-700)
-      }
+      },
+      fontFamily: {
+        // Cela remplace la police mono par défaut par la tienne
+        mono: ['"Space Mono"', 'monospace'],
+      },
+      
     }
   }
 }

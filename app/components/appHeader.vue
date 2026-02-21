@@ -40,7 +40,7 @@ const isActive = (linkHref) => {
           </NuxtLink>
 
           <!-- BOUTON OUTLINED LÉGER -->
-          <NuxtLink to="/contact"
+          <NuxtLink to="/contactV2"
             class="contact-button border border-van-dark text-van-dark px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-van-dark hover:text-white transition-all duration-300 group">
             Contact <span class="text-primary group-hover:text-white transition-colors mx-0.5">&</span> FAQ
           </NuxtLink>
