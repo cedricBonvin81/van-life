@@ -11,7 +11,7 @@
             </h2>
 
             <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-20 reveal-cta">
-                <AppButton to="mailto:hello@van-life.ch" variant="secondary" size="lg" external
+                <AppButton to="mailto:hello@van-life.ch" variant="secondary" size="lg"
                     class="tracking-widest uppercase">
                     Envoyer un message
                 </AppButton>
@@ -28,14 +28,13 @@
                     <div class="flex gap-6 mt-4">
                         <a href="#"
                             class="text-slate-900 hover:text-primary transition-colors uppercase text-xs tracking-tighter font-semibold">Instagram</a>
-                        <a href="#"
-                            class="text-slate-900 hover:text-primary transition-colors uppercase text-xs tracking-tighter font-semibold">Facebook</a>
+                        <!-- <a href="#"
+                            class="text-slate-900 hover:text-primary transition-colors uppercase text-xs tracking-tighter font-semibold">Facebook</a> -->
                     </div>
                 </div>
 
                 <div class="text-right hidden md:block">
-                    <p class="font-mono text-[10px] uppercase tracking-widest text-slate-400">© 2026 — Van-Life.ch</p>
-                    <p class="text-[10px] text-slate-300 mt-1 uppercase">Artisan aménageur</p>
+                    <p class="text-[12px] text-slate-500 mt-1 uppercase">Artisan aménageur</p>
                 </div>
             </div>
 

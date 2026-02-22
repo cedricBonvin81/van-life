@@ -1,5 +1,7 @@
 <template>
-    <a v-if="isExternal" :href="to" :class="[baseClasses, variantClasses[variant], sizeClasses[size]]">
+    <a v-if="isExternalLink" :href="to" :class="[baseClasses, variantClasses[variant], sizeClasses[size]]"
+        :target="to.startsWith('http') ? '_blank' : undefined"
+        :rel="to.startsWith('http') ? 'noopener noreferrer' : undefined">
         <Icon v-if="loading" name="uil:spinner" class="animate-spin h-5 w-5" />
         <slot />
     </a>
@@ -26,9 +28,11 @@ const props = defineProps({
     size: { type: String, default: 'md' },
     loading: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
+    // J'ai supprimé la prop isExternal ici pour éviter le conflit
 })
 
-const isExternal = computed(() => {
+// On la renomme légèrement pour la clarté
+const isExternalLink = computed(() => {
     return props.to && /^(https?:\/\/|mailto:|tel:)/.test(props.to)
 })
 
@@ -36,7 +40,7 @@ const baseClasses = "inline-flex items-center justify-center gap-2 font-bold sha
 
 const variantClasses = {
     primary: 'bg-primary text-white hover:brightness-110 shadow-primary/20 ',
-    secondary: 'bg-van-dark text-white hover:bg-slate-800 hover:text-white',
+    secondary: 'bg-van-dark text-white hover:bg-slate-800 hover:text-white', // Ton hover:text-white est bien là
     outline: 'border-2 border-secondary text-primary hover:bg-primary/5',
     danger: 'bg-red-500 text-white hover:bg-red-600'
 }

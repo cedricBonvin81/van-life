@@ -40,7 +40,7 @@
         </div>
 
         <div class="absolute bottom-12 left-12 border border-white/10 px-4 py-2 reveal-up hidden md:block">
-            <span class="text-[9px] text-white/30 uppercase tracking-[0.3em] italic">Handcrafted in France</span>
+            <span class="text-[9px] text-white/30 uppercase tracking-[0.3em] italic">Handcrafted in Switzerland</span>
         </div>
 
     </section>

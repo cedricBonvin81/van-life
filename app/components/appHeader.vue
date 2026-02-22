@@ -47,8 +47,8 @@ const isActive = (linkHref) => {
         </div>
 
         <!-- BOUTON MOBILE -->
-        <div class="md:hidden">
-          <button @click="isMenuOpen = !isMenuOpen" class="text-van-dark p-2 focus:outline-none" aria-label="Menu">
+        <div class="md:hidden ">
+          <button @click="isMenuOpen = !isMenuOpen" class="text-van-dark p-2 focus:outline-none" aria-label="Menu" aria-hidden="true" >
             <Icon :name="isMenuOpen ? 'lucide:x' : 'lucide:menu'" class="h-8 w-8" />
           </button>
         </div>

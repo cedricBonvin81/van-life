@@ -1,101 +1,114 @@
 <template>
-    <footer class="bg-slate-900 text-white pt-20 pb-10">
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
 
-                <div class="md:col-span-1">
-                    <h3 class="font-mono text-sm tracking-[0.3em] uppercase mb-6 text-primary">Van-Life.ch</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed font-light">
-                        Atelier de conception de vans d'exception. <br>
-                        De l'isolation à la liberté totale.
+                <div class="flex flex-col">
+                    <h3 class="font-mono text-sm tracking-[0.3em] uppercase mb-8 text-primary">
+                        Van-Life<span class="text-white/50">.ch</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-light max-w-xs">
+                        Atelier de conception de vans sur-mesure. <br>
+                        L'artisanat suisse à votre service.
                     </p>
+                    <div class="mt-8">
+                        <span class="text-[12px] uppercase tracking-[0.2em] text-white/50 italic">
+                            Handcrafted <br/> in Switzerland
+                        </span>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-6">Navigation</h4>
-                    <ul class="space-y-3">
-                        <li>
-                            <NuxtLink to="/"
-                                class="text-sm font-light hover:text-primary transition-colors">Accueil</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/realisations"
-                                class="text-sm font-light hover:text-primary transition-colors">Réalisations</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog" class="text-sm font-light hover:text-primary transition-colors">Blog
+                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-8">Menu</h4>
+                    <ul class="space-y-4">
+                        <li v-for="link in navigation" :key="link.to">
+                            <NuxtLink :to="link.to"
+                                class="text-sm font-light hover:text-primary transition-colors duration-300">
+                                {{ link.label }}
                             </NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/contact" class="text-sm font-light hover:text-primary transition-colors">
-                                Contact</NuxtLink>
                         </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-6">Ressources & Blog
-                    </h4>
-                    <ul class="grid grid-cols-1 gap-3">
-                        <li>
-                            <NuxtLink to="/blog"
-                                class="text-sm font-light hover:text-primary transition-colors italic">Le Manifeste
+                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-8">Expertise</h4>
+                    <ul class="space-y-4">
+                        <li v-for="topic in blogTopics" :key="topic.to">
+                            <NuxtLink :to="topic.to"
+                                class="text-sm font-light hover:text-primary transition-colors duration-300">
+                                {{ topic.label }}
                             </NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog/news" class="text-sm font-light hover:text-primary transition-colors">
-                                Actualités</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog/amenagement"
-                                class="text-sm font-light hover:text-primary transition-colors">Aménagement</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog/isolation"
-                                class="text-sm font-light hover:text-primary transition-colors">Isolation</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog/electricite"
-                                class="text-sm font-light hover:text-primary transition-colors">Électricité</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/blog/sanitaire"
-                                class="text-sm font-light hover:text-primary transition-colors">Sanitaire</NuxtLink>
                         </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-6">Contact</h4>
-                    <p class="text-sm font-light text-slate-400 mb-4">Suisse Romande — Valais</p>
-                    <a href="mailto:hello@van-life.ch"
-                        class="text-sm font-light border-b border-primary/30 pb-1 hover:border-primary transition-all">
-                        hello@van-life.ch
-                    </a>
-                </div>
+                    <h4 class="font-mono text-[11px] uppercase tracking-widest text-white/40 mb-8">Contact & Social</h4>
+                    <p class="text-sm font-light text-slate-400 mb-8 italic">Suisse Romande — Valais</p>
 
+                    <ul class="space-y-5">
+                        <li>
+                            <a href="mailto:hello@van-life.ch" class="group flex flex-col">
+                                <span
+                                    class="text-[9px] font-mono text-primary uppercase tracking-widest mb-1">Email</span>
+                                <span
+                                    class="text-sm font-light border-b border-white/5 group-hover:border-primary transition-all self-start pb-0.5">
+                                    hello@van-life.ch
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+41795190484" class="group flex flex-col">
+                                <span
+                                    class="text-[9px] font-mono text-primary uppercase tracking-widest mb-1">Téléphone</span>
+                                <span class="text-sm font-light group-hover:text-primary transition-colors">
+                                    +41 79 519 04 84
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/vanlife.ch" target="_blank" rel="noopener noreferrer"
+                                class="group flex flex-col">
+                                <span
+                                    class="text-[9px] font-mono text-primary uppercase tracking-widest mb-1">Instagram</span>
+                                <span class="text-sm font-light group-hover:text-primary transition-colors">
+                                    @van-life.ch
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-white/20">
-                    © 2026 Van-Life.ch — Tous droits réservés
+            <div class="pt-8 text-white/50 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="font-mono text-[10px] uppercase tracking-widest">
+                    © {{ new Date().getFullYear() }} Van-Life.ch — Tous droits réservés
                 </p>
-                <div class="flex gap-8">
-                    <NuxtLink to="/mentions-legales"
-                        class="font-mono text-[10px] uppercase tracking-widest text-white/20 hover:text-white transition-colors">
-                        Mentions</NuxtLink>
-                    <NuxtLink to="/politique-confidentialite"
-                        class="font-mono text-[10px] uppercase tracking-widest text-white/20 hover:text-white transition-colors">
-                        Confidentialité</NuxtLink>
+
+                <div class="flex gap-10">
+                    <NuxtLink to="/legal"
+                        class="font-mono text-[10px] uppercase tracking-widest hover:text-white transition-colors">
+                        Mentions et Confidentialité
+                    </NuxtLink>
                 </div>
             </div>
         </div>
     </footer>
 </template>
 
-<style scoped>
-/* Petit effet de souligne au survol pour les liens du footer */
-a {
-    display: inline-block;
-}
-</style>
+<script setup>
+const navigation = [
+    { label: 'Accueil', to: '/' },
+    { label: 'Réalisations', to: '/realisations' },
+    { label: 'Blog', to: '/blog' },
+    { label: 'Contact', to: '/contact' }
+]
+
+const blogTopics = [
+    { label: 'Le Manifeste', to: '/blog' },
+    { label: 'Aménagement', to: '/blog/amenagement' },
+    { label: 'Isolation', to: '/blog/isolation' },
+    { label: 'Électricité', to: '/blog/electricite' },
+    { label: 'Sanitaire', to: '/blog/sanitaire' }
+]
+</script>

@@ -21,7 +21,7 @@
                 </p>
 
                 <div class="ManifesteReveal flex flex-col items-start md:items-end">
-                    <NuxtLink to="/blog/index"
+                    <NuxtLink to="/blog"
                         class="group flex items-center gap-4 text-slate-900 font-bold uppercase text-xs tracking-widest transition-all">
                         <span class="border-b-2 border-primary pb-1 group-hover:pr-4 transition-all uppercase">
                             Lire notre manifeste

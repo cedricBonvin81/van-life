@@ -6,8 +6,16 @@
             <div
                 class="relative flex flex-col justify-center px-8 py-16 sm:px-12 lg:p-20 bg-slate-900 text-white overflow-hidden">
                 <div class="absolute inset-0">
-                    <NuxtImg src="/images/contact.jpg" alt="Atelier Van Life"
-                        class="h-full w-full object-cover object-right opacity-30 grayscale" format="webp" />
+                    <NuxtImg 
+                        src="/images/contact.jpg" 
+                        alt="Atelier Van Life" 
+                        class="h-full w-full object-cover object-right opacity-30 grayscale" 
+                        format="webp" 
+                        quality="60"
+                        width="1200"
+                        sizes="sm:100vw md:100vw lg:1200px"
+                        loading="lazy"         
+                    />
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
                 </div>
 

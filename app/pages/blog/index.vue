@@ -2,9 +2,17 @@
   <article class="bg-[#FDFCFB] text-[#0f172a] overflow-x-hidden selection:bg-primary selection:text-white">
     <!-- HERO : L'IMPACT TOTAL -->
     <header class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-900">
-      <NuxtImg src="/images/manifeste_hero.jpg"
+      <NuxtImg 
+        src="/images/manifeste_hero.jpg"
         class="absolute inset-0 w-full h-full object-cover opacity-70 scale-105 animate-slow-zoom"
-        alt="un homme debout sur le van et regarde l'horizon" fetchpriority="high" format="webp" quality="80" />
+        alt="un homme debout sur le van et regarde l'horizon" 
+        fetchpriority="high" 
+        size="1200"
+        format="webp" 
+        quality="40" 
+        width="1200" 
+        sizes="sm:100vw md:100vw lg:1200px"
+      />
 
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70"></div>
 
