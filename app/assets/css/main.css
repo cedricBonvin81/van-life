@@ -26,7 +26,7 @@ html {
 
     /* Pour que tous tes liens sur le site utilisent ton orange au survol automatiquement */
     a {
-        @apply transition-colors duration-200 hover:text-primary;
+        @apply transition-colors duration-200;
     }
 }
 

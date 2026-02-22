@@ -168,17 +168,45 @@
     </div>
 
     <!-- SECTION FINALE : LE DÉPART -->
-    <section class="bg-[#0f172a] py-40 text-center text-white relative overflow-hidden">
-      <div class="relative z-10">
-        <h2 ref="reveals" class="text-6xl text-primary md:text-[100px] font-black uppercase italic mb-12 leading-none">
-          Lâcher <br> <span class="text-white underline decoration-8">Prise</span>
-        </h2>
-        <p ref="reveals" class="text-2xl text-slate-400 font-light mb-16 italic">"La route n'est pas entre deux points,
-          elle est en vous."</p>
-        <NuxtLink to="/contact"
-          class="inline-block bg-primary text-white px-16 py-6 rounded-full font-black uppercase tracking-[0.2em] hover:scale-110 hover:text-white transition-transform shadow-2xl">
-          Écrire mon histoire
-        </NuxtLink>
+    <section class="relative bg-[#0f172a] py-32 md:py-32 px-6 overflow-hidden">
+      <div
+        class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+      </div>
+
+      <div class="container mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+
+          <div class="lg:col-span-7">
+            <span class="block font-mono text-primary text-xs uppercase tracking-[0.5em] mb-8">
+              L'horizon vous appartient
+            </span>
+            <h2 class="text-white text-5xl md:text-8xl  uppercase italic leading-[0.9] tracking-tighter">
+              Le voyage <br>
+              <span class="outline-text">commence</span> <br>
+              <span class="text-primary">maintenant.</span>
+            </h2>
+          </div>
+
+          <div class="lg:col-span-5 lg:pl-12">
+            <p class="text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-md">
+              Chaque projet, chaque van est un nouveau chapitre. Prêt à dessiner le vôtre ?
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
+              <AppButton to="/contact" variant="primary" size="lg"
+                class="!rounded-none px-12 py-5 tracking-widest uppercase">
+                Lancer mon projet
+              </AppButton>
+
+              <div class="border-l border-white/10 pl-6">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1">Basé en Valais</p>
+                <p class="text-xs text-white/40 uppercase tracking-tighter italic font-light">Artisan aménageur</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   </article>

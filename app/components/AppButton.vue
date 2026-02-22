@@ -1,15 +1,26 @@
 <template>
-    <component :is="to ? 'NuxtLink' : 'button'" :to="to" :type="!to ? type : null" :disabled="loading || disabled"
-        class="rounded-full inline-flex items-center justify-center gap-2 font-bold shadow-sm cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"        
-        :class="[variantClasses[variant], sizeClasses[size]]">
+    <a v-if="isExternal" :href="to" :class="[baseClasses, variantClasses[variant], sizeClasses[size]]">
         <Icon v-if="loading" name="uil:spinner" class="animate-spin h-5 w-5" />
         <slot />
-    </component>
+    </a>
+
+    <NuxtLink v-else-if="to" :to="to" :class="[baseClasses, variantClasses[variant], sizeClasses[size]]">
+        <Icon v-if="loading" name="uil:spinner" class="animate-spin h-5 w-5" />
+        <slot />
+    </NuxtLink>
+
+    <button v-else :type="type" :disabled="loading || disabled"
+        :class="[baseClasses, variantClasses[variant], sizeClasses[size]]">
+        <Icon v-if="loading" name="uil:spinner" class="animate-spin h-5 w-5" />
+        <slot />
+    </button>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
-    to: { type: String, default: null }, // Si 'to' est présent, c'est un lien NuxtLink
+    to: { type: String, default: null },
     type: { type: String, default: 'button' },
     variant: { type: String, default: 'primary' },
     size: { type: String, default: 'md' },
@@ -17,10 +28,16 @@ const props = defineProps({
     disabled: { type: Boolean, default: false }
 })
 
+const isExternal = computed(() => {
+    return props.to && /^(https?:\/\/|mailto:|tel:)/.test(props.to)
+})
+
+const baseClasses = "inline-flex items-center justify-center gap-2 font-bold shadow-sm cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+
 const variantClasses = {
-    primary: 'bg-primary text-white hover:brightness-110 shadow-primary/20',
-    secondary: 'bg-van-dark text-white hover:bg-slate-800',
-    outline: 'border-2 border-secondary text-primary hover:bg-primary hover:text-white',
+    primary: 'bg-primary text-white hover:brightness-110 shadow-primary/20 ',
+    secondary: 'bg-van-dark text-white hover:bg-slate-800 hover:text-white',
+    outline: 'border-2 border-secondary text-primary hover:bg-primary/5',
     danger: 'bg-red-500 text-white hover:bg-red-600'
 }
 

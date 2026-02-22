@@ -1,7 +1,3 @@
-<script setup>
-// Script vide, tout est géré par le composable
-</script>
-
 <template>
     <section class="action-section bg-white py-24 md:py-32 px-6">
         <div class="container mx-auto max-w-4xl text-center">
@@ -15,18 +11,14 @@
             </h2>
 
             <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-20 reveal-cta">
-                <a href="mailto:contact@van-life.ch"
-                    class="group relative px-10 py-5 bg-slate-900 text-white overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                    <span class="relative z-10 font-light tracking-widest uppercase text-sm">Envoyer un message</span>
-                    <div
-                        class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    </div>
-                </a>
+                <AppButton to="mailto:hello@van-life.ch" variant="secondary" size="lg" external
+                    class="tracking-widest uppercase">
+                    Envoyer un message
+                </AppButton>
 
-                <a href="tel:+41XXXXXXXXX"
-                    class="px-10 py-5 border border-slate-200 text-slate-900 font-light tracking-widest uppercase text-sm hover:bg-slate-50 transition-colors">
+                <AppButton to="tel:+41795190484" variant="outline" size="lg" class="tracking-widest uppercase">
                     Appeler l'atelier
-                </a>
+                </AppButton>
             </div>
 
             <div
@@ -43,7 +35,7 @@
 
                 <div class="text-right hidden md:block">
                     <p class="font-mono text-[10px] uppercase tracking-widest text-slate-400">© 2026 — Van-Life.ch</p>
-                    <p class="text-[10px] text-slate-300 mt-1 uppercase">Artisanat Suisse de précision</p>
+                    <p class="text-[10px] text-slate-300 mt-1 uppercase">Artisan aménageur</p>
                 </div>
             </div>
 

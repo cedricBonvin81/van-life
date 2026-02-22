@@ -99,7 +99,7 @@
                          variant="secondary" 
                          size="lg" 
                          :loading="loading" 
-                         class="w-full !rounded-none !font-mono !uppercase !tracking-[0.4em]">
+                         class="w-full !font-mono !uppercase !tracking-[0.4em]">
                             Envoyer ma demande
                             <Icon v-if="!loading" name="ph:paper-plane-tilt-light" class="text-xl" />
                         </AppButton>
