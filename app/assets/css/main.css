@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 @layer base {
     body {
         /* Utilise la variable 'content' de ton tailwind.config.ts */

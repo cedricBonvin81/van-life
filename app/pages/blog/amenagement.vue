@@ -31,10 +31,8 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+import { onMounted } from 'vue'
+import { useAnimations } from '~/composables/useAnimations'
 
 definePageMeta({
     layout: 'blog'
@@ -53,7 +51,7 @@ const sections = [
     },
     {
         title: "Mobilier & Ergonomie",
-        text: "Chaque meuble est fabriqué <strong style='color: #d97706'>à la demande</strong> pour épouser les formes de votre van. L'objectif est simple : optimiser chaque centimètre pour créer un intérieur fluide, avec une quincaillerie de qualité qui assure des rangements fiables au quotidien.",        
+        text: "Chaque meuble est fabriqué <strong style='color: #d97706'>à la demande</strong> pour épouser les formes de votre van. L'objectif est simple : optimiser chaque centimètre pour créer un intérieur fluide, avec une quincaillerie de qualité qui assure des rangements fiables au quotidien.",
         image: "/images/amenagement_meuble.png",
         badge: "02 — Le Sur-mesure",
         features: ['Adaptation aux courbes', 'Confort d\'usage']
@@ -74,52 +72,40 @@ const sections = [
     }
 ]
 
-// ANIMATIONS : Le moteur identique
-const { initHeroAnim, initScrollAnim, initOutroAnim } = useBlogAnimations()
-let ctx;
+// ---- ANIMATIONS via composable ----
+const { blogPage } = useAnimations()
 
 onMounted(() => {
     if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
-        ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
+        // Hero
+        blogPage.hero()
 
-        ctx = gsap.context(() => {
-            initHeroAnim()
-            ScrollTrigger.refresh()
+        // Sections
+        sections.forEach((_, i) => {
+            const index = i + 1
+            const isEven = index % 2 === 0
 
-            sections.forEach((_, i) => {
-                const index = i + 1
-                const isEven = index % 2 === 0
-
-                if (!isEven) {
-                    initScrollAnim(`.section-img-${index}`, 'left')
-                    initScrollAnim(`.section-text-${index}`, 'right')
-                } else {
-                    initScrollAnim(`.section-text-${index}`, 'left')
-                    initScrollAnim(`.section-img-${index}`, 'right')
-                }
-            })
-
-            initOutroAnim(".outro-section")
+            if (!isEven) {
+                blogPage.sections(`.section-img-${index}`, 'left')
+                blogPage.sections(`.section-text-${index}`, 'right')
+            } else {
+                blogPage.sections(`.section-text-${index}`, 'left')
+                blogPage.sections(`.section-img-${index}`, 'right')
+            }
         })
 
-        setTimeout(() => {
-            ScrollTrigger.refresh()
-        }, 2000)
-
-        window.addEventListener('load', () => ScrollTrigger.refresh())
+        // Outro
+        blogPage.outro(".outro-section")
     }
 })
-
-onUnmounted(() => {
-    if (ctx) ctx.revert()
-    window.removeEventListener('load', () => ScrollTrigger.refresh())
-})
 </script>
-
 <style scoped>
 .soft-mask {
     mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
+.text-shadow-xl {
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 </style>

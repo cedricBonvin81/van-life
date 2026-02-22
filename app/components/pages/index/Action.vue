@@ -1,5 +1,9 @@
+<script setup>
+// Script vide, tout est géré par le composable
+</script>
+
 <template>
-    <section class="bg-white py-24 md:py-32 px-6">
+    <section class="action-section bg-white py-24 md:py-32 px-6">
         <div class="container mx-auto max-w-4xl text-center">
 
             <span class="font-mono text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 block reveal-cta">
@@ -46,27 +50,3 @@
         </div>
     </section>
 </template>
-
-<script setup>
-import { onMounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-onMounted(() => {
-    if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
-
-        gsap.from(".reveal-cta", {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".reveal-cta",
-                start: "top 90%",
-            }
-        })
-    }
-})
-</script>

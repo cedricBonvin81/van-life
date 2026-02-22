@@ -186,66 +186,30 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import gsap from 'gsap'
+import { useAnimations } from '~/composables/useAnimations'
 
 definePageMeta({ layout: 'blog' })
 
-// Tableaux simples pour collecter les éléments du DOM
 const chapters = []
 const reveals = []
 
-// Fonctions de collecte pour les refs
 const setChapterRef = (el) => { if (el) chapters.push(el) }
 const setRevealRef = (el) => { if (el) reveals.push(el) }
 
 onMounted(() => {
   if (!process.client) return
+  const { blog } = useAnimations()
 
-  // 1. HERO ANIMATION (L'Art de <-> S'égarer)
-  const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 2.5 } })
-  tl.from(".hero-tag", { opacity: 0, y: -20 })
-    .from(".hero-title-1", { x: -120, opacity: 0 }, "-=2")
-    .from(".hero-title-2", { x: 120, opacity: 0 }, "-=2.5")
-    .from(".hero-p", { opacity: 0, y: 20 }, "-=1.5")
+  // HERO
+  blog.hero()
 
-  // 2. INTERSECTION OBSERVER (Moteur de détection)
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target
+  // CHAPTERS
+  blog.chapters(chapters)
 
-        if (el.classList.contains('chapter-section')) {
-          const title = el.querySelector('.chapter-title')
-          const text = el.querySelector('.chapter-text')
-          gsap.to(title, { opacity: 1, x: 0, duration: 2, ease: "power2.out" })
-          gsap.to(text, { opacity: 1, x: 0, duration: 2.2, delay: 0.3, ease: "power2.out" })
-        } else {
-          gsap.to(el, { opacity: 1, y: 0, duration: 2, ease: "power2.out" })
-        }
-        observer.unobserve(el)
-      }
-    })
-  }, { threshold: 0.1 })
-
-  // Initialisation des Chapitres collectés
-  chapters.forEach(section => {
-    const isRight = section.classList.contains('text-right')
-    const title = section.querySelector('.chapter-title')
-    const text = section.querySelector('.chapter-text')
-
-    gsap.set(title, { opacity: 0, x: isRight ? 60 : -60 })
-    gsap.set(text, { opacity: 0, x: isRight ? -60 : 60 })
-    observer.observe(section)
-  })
-
-  // Initialisation des Reveals collectés (Images, Citations)
-  reveals.forEach(el => {
-    gsap.set(el, { opacity: 0, y: 30 })
-    observer.observe(el)
-  })
+  // REVEALS
+  blog.reveals(reveals)
 })
 </script>
-
 
 <style scoped>
 @keyframes slow-zoom {

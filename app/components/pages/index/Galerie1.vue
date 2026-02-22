@@ -1,5 +1,5 @@
 <template>
-    <section class="py-16 md:py-24 bg-[#f8f8f8] overflow-hidden">
+    <section class="gallery-1 py-16 md:py-24 bg-[#f8f8f8]">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-12 gap-y-12 md:gap-8 relative">
 
@@ -71,19 +71,14 @@
                 class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
                 @click="isLightboxOpen = false">
                 <NuxtImg :src="activeImg" class="max-w-full max-h-[90vh] object-contain shadow-2xl" />
-                <button
-                    class="absolute top-10 right-10 text-white font-mono text-sm uppercase tracking-widest">Fermer</button>
             </div>
         </Transition>
     </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ref } from 'vue'
 
-// Variables réactives pour la Lightbox
 const isLightboxOpen = ref(false)
 const activeImg = ref('')
 
@@ -91,61 +86,4 @@ const openLightbox = (url) => {
     activeImg.value = url
     isLightboxOpen.value = true
 }
-
-onMounted(() => {
-    if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
-
-        let mm = gsap.matchMedia();
-
-        // 1. Parallaxe différencié (Desktop & Tablette)
-        mm.add("(min-width: 768px)", () => {
-            gsap.to('.anim-v1', { y: -40, scrollTrigger: { trigger: '.anim-v1', scrub: 1 } })
-            gsap.to('.anim-v2', { y: 30, scrollTrigger: { trigger: '.anim-v2', scrub: 1 } })
-            gsap.to('.anim-v3', { y: -50, scrollTrigger: { trigger: '.anim-v3', scrub: 1 } })
-            gsap.to('.anim-v4', { y: -70, x: -10, scrollTrigger: { trigger: '.anim-v4', scrub: 1.2 } })
-        });
-
-        // 2. Parallaxe réduit (Mobile)
-        mm.add("(max-width: 767px)", () => {
-            gsap.to('.anim-v1, .anim-v2, .anim-v3', {
-                y: -10,
-                scrollTrigger: {
-                    trigger: '.container',
-                    start: "top bottom",
-                    scrub: true
-                }
-            })
-        });
-
-        // 3. Reveal (Apparition fluide au premier scroll)
-        // Ajout de .anim-v4 pour qu'elle profite aussi de l'effet sur tablette/desktop
-        const anims = ['.anim-v1', '.anim-v2', '.anim-v3', '.anim-v4']
-        anims.forEach((selector) => {
-            gsap.from(selector, {
-                y: 20,
-                opacity: 0,
-                duration: 1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: selector,
-                    start: "top 92%",
-                    toggleActions: "play none none none" // Joue l'animation une seule fois
-                }
-            })
-        })
-    }
-})
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.4s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-</style>

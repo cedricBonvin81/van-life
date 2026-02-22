@@ -71,59 +71,39 @@ const sections = [
         features: ['Évacuation gravitaire', 'Siphon anti-odeur']
     },
 ]
-
-// ANIMATIONS : Inchangées, elles fonctionnent parfaitement avec le nouveau thème
-const { initHeroAnim, initScrollAnim, initOutroAnim } = useBlogAnimations()
-let ctx;
+const { blogPage } = useAnimations()
 
 onMounted(() => {
-    // 1. On s'assure que le code ne tourne que côté client
     if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
+        // Hero
+        blogPage.hero()
 
-        ctx = gsap.context(() => {
-            // 2. On lance l'animation Hero immédiatement
-            initHeroAnim()
-            ScrollTrigger.refresh()
-            
-            // 3. On boucle sur les sections
-            sections.forEach((_, i) => {
-                const index = i + 1
-                const isEven = index % 2 === 0
+        // Sections
+        sections.forEach((_, i) => {
+            const index = i + 1
+            const isEven = index % 2 === 0
 
-                if (!isEven) {
-                    initScrollAnim(`.section-img-${index}`, 'left')
-                    initScrollAnim(`.section-text-${index}`, 'right')
-                } else {
-                    initScrollAnim(`.section-text-${index}`, 'left')
-                    initScrollAnim(`.section-img-${index}`, 'right')
-                }
-            })
-
-            initOutroAnim(".outro-section")
+            if (!isEven) {
+                blogPage.sections(`.section-img-${index}`, 'left')
+                blogPage.sections(`.section-text-${index}`, 'right')
+            } else {
+                blogPage.sections(`.section-text-${index}`, 'left')
+                blogPage.sections(`.section-img-${index}`, 'right')
+            }
         })
 
-        // 4. LE FIX : On force ScrollTrigger à recalculer après un court délai
-        // Cela permet au DOM et aux images de prendre leur place finale
-        setTimeout(() => {
-            ScrollTrigger.refresh()
-        }, 2000)
-
-        // 5. Sécurité supplémentaire : refresh au chargement complet
-        window.addEventListener('load', () => ScrollTrigger.refresh())
+        // Outro
+        blogPage.outro(".outro-section")
     }
 })
-
-onUnmounted(() => {
-    if (ctx) ctx.revert()
-    // Nettoyage des événements pour éviter les fuites mémoire
-    window.removeEventListener('load', () => ScrollTrigger.refresh())
-})
 </script>
-
 <style scoped>
 .soft-mask {
     mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
 }
-</style>|
+
+.text-shadow-xl {
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+</style>

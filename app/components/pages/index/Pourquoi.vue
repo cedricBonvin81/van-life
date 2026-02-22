@@ -39,10 +39,10 @@
           <div class="absolute line-life left-0 top-0 bottom-0 w-px bg-slate-100 z-0 origin-top"></div>
 
           <div v-for="(item, index) in reasons" :key="index"
-            class="reason-item group py-20 first:pt-0 last:pb-0 cursor-default relative">
+            class="reason-item group py-16 first:pt-0 last:pb-0 cursor-default relative">
 
             <span
-              class="absolute left-0 top-16 font-mono text-8xl font-black text-primary/30 select-none transition-all duration-700 group-hover:text-primary/10 group-hover:-translate-y-2 z-10">
+              class="absolute left-0 top-12 font-mono text-8xl font-black text-primary/30 select-none transition-all duration-700 group-hover:text-primary/10 group-hover:-translate-y-2 z-10">
               0{{ index + 1 }}
             </span>
 
@@ -55,7 +55,7 @@
                 {{ item.description }}
               </p>
               <div
-                class="w-12 h-px bg-primary/0 group-hover:bg-primary/40 group-hover:w-24 transition-all duration-700 mt-8">
+                class="w-12 h-px bg-primary/0 group-hover:bg-primary/40 group-hover:w-24 transition-all duration-700 mt-6">
               </div>
             </div>
           </div>
@@ -67,52 +67,23 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const reasons = [
   {
-    title: "La Passion du Détail",
-    description: "Nous ne construisons pas seulement des aménagements, nous façonnons des refuges. Chaque courbe et chaque assemblage est guidé par notre amour du bois et une quête obsessionnelle de la finition parfaite."
+    title: "Écoute & Singularité",
+    description: "Chaque projet commence par une page blanche. Nous ne dupliquons pas de concepts ; nous traduisons vos besoins et l'âme du voyage en une architecture mobile unique."
   },
   {
-    title: "Matières & Authenticité",
-    description: "Bois locaux, isolants bio-sourcés et textiles durables. Nous sélectionnons des matériaux qui ont une âme, pour créer un environnement sain qui vieillit avec noblesse au fil de vos kilomètres."
+    title: "Maîtrise de la Matière",
+    description: "Bois locaux, isolants naturels, finitions artisanales. Nous privilégions les matériaux authentiques pour garantir un refuge sain et robuste."
   },
   {
-    title: "Architecture Millimétrée",
-    description: "Dans un van, le luxe c'est l'espace. Nous optimisons chaque recoin grâce à une conception technique rigoureuse, transformant les contraintes en solutions ergonomiques et esthétiques."
+    title: "Précision de l'Atelier",
+    description: "Dans un van, chaque centimètre compte. Du tracé numérique à la pose manuelle, nous assurons un ajustement millimétré pour un confort optimal."
+  },
+  {
+    title: "Respect des Engagements",
+    description: "Transparence sur les coûts et suivi rigoureux de l'homologation VASP. Nous gérons la technique pour que vous n'ayez que le plaisir de rouler."
   }
 ]
-
-onMounted(() => {
-  setTimeout(() => {
-    if (process.client) {
-      gsap.registerPlugin(ScrollTrigger)
-
-      gsap.from(".reveal-left", {
-        scrollTrigger: { trigger: ".reveal-left", start: "top 85%" },
-        x: -40, opacity: 0, duration: 1, ease: "power2.out"
-      })
-
-      gsap.from(".line-life", {
-        scrollTrigger: {
-          trigger: ".line-life",
-          start: "top 70%",
-          end: "bottom 80%",
-          scrub: true
-        },
-        scaleY: 0, ease: "none"
-      })
-
-      gsap.utils.toArray(".reason-item").forEach((item) => {
-        gsap.from(item, {
-          scrollTrigger: { trigger: item, start: "top 90%" },
-          y: 40, opacity: 0, duration: 1, ease: "power2.out"
-        })
-      })
-    }
-  }, 100)
-})
 </script>

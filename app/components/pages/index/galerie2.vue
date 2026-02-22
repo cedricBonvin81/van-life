@@ -1,5 +1,5 @@
 <template>
-    <section class="relative w-full h-[85vh] overflow-hidden bg-slate-900 flex items-center justify-center">
+    <section class="gallery-2  relative w-full h-[85vh] overflow-hidden bg-slate-900 flex items-center justify-center">
 
         <div class="absolute inset-0 w-full h-full scale-125 divider-img-container text-white">
             <img src="https://picsum.photos/id/443/1920/1080"
@@ -45,61 +45,3 @@
 
     </section>
 </template>
-
-<script setup>
-import { onMounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-onMounted(() => {
-    if (process.client) {
-        gsap.registerPlugin(ScrollTrigger)
-
-        // Effet parallaxe : l'image bouge à contre-courant du scroll
-        gsap.to(".divider-img-container", {
-            yPercent: -20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".divider-img-container",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        })
-
-        // Animation d'entrée des textes centraux
-        gsap.from(".reveal-up", {
-            y: 60,
-            opacity: 0,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".reveal-up",
-                start: "top 90%",
-            }
-        })
-
-        // Animation subtile des éléments techniques sur les côtés
-        gsap.from(".float-element", {
-            x: -20,
-            opacity: 0,
-            duration: 2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".divider-img-container",
-                start: "top 50%",
-            }
-        })
-    }
-})
-</script>
-
-<style scoped>
-/* Optimisation du rendu pour les animations de transformation */
-.divider-img-container,
-.reveal-up,
-.float-element {
-    will-change: transform, opacity;
-}
-</style>
