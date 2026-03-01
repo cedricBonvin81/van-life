@@ -1,0 +1,66 @@
+{
+    "slug": "herens",
+    "name": "Hérens",
+    "vehicleType": "VW T6.1 4Motion",
+    "location": "Valais, Suisse",
+    "year": "2024",
+    "intro": "Un chalet nomade en mélèze massif.",
+    "fullStory": "Pour ce projet, nous avons bousculé les codes du van classique. L'idée était de recréer l'ambiance feutrée d'un raccard valaisan tout en intégrant une autonomie électrique de pointe. Le résultat : un cocon brut, minimaliste et ultra-performant.",
+    "ownerNames": "Sophie et Pierre",
+    "ownerQuote": "Nous rêvions d'un van qui soit à la fois un refuge chaleureux et un outil de travail performant. L'équipe a su comprendre notre vision et la transformer en réalité, avec une attention incroyable aux détails.",
+    "mainImage": "https://picsum.photos/id/1015/1920/1280",
+    "gallery": [
+        {
+            "url": "/images/contact.jpg",
+            "caption": "Lignes épurées"
+        },
+        {
+            "url": "https://picsum.photos/id/1018/800/1200",
+            "caption": "Détail Menuiserie"
+        },
+        {
+            "url": "https://picsum.photos/id/1019/1200/800",
+            "caption": "Espace Vie"
+        },
+        {
+            "url": "https://picsum.photos/id/1020/1200/800",
+            "caption": "Coin Cuisine"
+        },
+        {
+            "url": "https://picsum.photos/id/1021/1200/800",
+            "caption": "Rangements optimisés"
+        }
+    ],
+    "techDetails": [
+        {
+            "title": "Places Route",
+            "content": "4 places expertisées",
+            "icon": "heroicons:user-group"
+        },
+        {
+            "title": "Couchages",
+            "content": "2 adultes + 2 enfants",
+            "icon": "heroicons:moon"
+        },
+        {
+            "title": "Énergie",
+            "content": "Victron Lithium 200Ah + Solaire",
+            "icon": "heroicons:bolt"
+        },
+        {
+            "title": "Eau",
+            "content": "80L propre / 40L usée",
+            "icon": "heroicons:beaker"
+        },
+        {
+            "title": "Isolation",
+            "content": "Armaflex 19mm + Liège projeté",
+            "icon": "heroicons:shield-check"
+        },
+        {
+            "title": "Chauffage",
+            "content": "Webasto Airtop 2000 Diesel",
+            "icon": "heroicons:sun"
+        }
+    ]
+}

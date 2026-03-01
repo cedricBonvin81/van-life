@@ -38,6 +38,23 @@ definePageMeta({
     layout: 'blog'
 })
 
+useSeoMeta({
+    // Titre : On met en avant l'artisanat et le sur-mesure
+    title: 'Mobilier & Aménagement Bois pour Van | Van-Life Valais',
+    description: 'Conception de mobilier sur-mesure pour vans : espace nuit optimisé, pose de parquet et travail du bois artisanal. Créez un intérieur unique et chaleureux.',
+
+    // Open Graph (Réseaux sociaux)
+    ogTitle: 'L’Art du Bois dans votre Van | Mobilier & Finitions',
+    ogDescription: 'Du parquet au lit peigne, découvrez nos aménagements intérieurs en bois massif et contreplaqué de qualité.',
+    ogImage: '/images/amenagement_meuble.png', // Une photo de ton plus beau meuble ou du parquet posé
+    ogType: 'article',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Aménagement Intérieur Van-Life | Design & Bois',
+    twitterDescription: 'Espace nuit, rangements et parquet sur-mesure pour fourgons aménagés.',
+})
+
 const themeColor = "#d97706" // Amber-600
 
 // CONTENT : Aménagement & Menuiserie

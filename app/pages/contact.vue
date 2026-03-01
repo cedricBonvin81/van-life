@@ -27,9 +27,20 @@ definePageMeta({
 
 // SEO Meta
 useSeoMeta({
-    title: 'Contact | Atelier d\'Aménagement Van Life en Suisse',
-    description: 'Projet sur mesure ou conseil technique ? Contactez notre atelier à La Place (Valais).',
-    ogImage: '/images/contact.jpg',
+    // Titre : Clair et direct
+    title: 'Contactez Van-Life | Devis & Projet d’Aménagement en Valais',
+    description: 'Une question ? Un projet de van sur-mesure ? Contactez-nous pour discuter de votre futur aménagement. Atelier situé en Valais.',
+
+    // Open Graph
+    ogTitle: 'Contactez Van-Life.ch | Discutons de votre projet',
+    ogDescription: 'Prêt à passer à l’action ? Prenez contact pour un devis personnalisé ou une visite à l’atelier.',
+    ogImage: '/images/contact_hero.jpg', // Une photo de toi à l'œuvre ou de l'entrée de l'atelier
+    ogType: 'website',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Contact | Van-Life.ch',
+    twitterDescription: 'Demandez votre devis gratuit pour votre aménagement de van.',
 })
 
 const modal = ref({

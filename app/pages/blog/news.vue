@@ -60,6 +60,24 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 definePageMeta({ layout: 'blog' })
+   
+useSeoMeta({
+    // Titre : On mixe actualités et expertise
+    title: 'Blog & Conseils Aménagement Van | Van-Life.ch',
+    description: 'Retrouvez nos derniers conseils, astuces techniques et coulisses de l’atelier. Tout sur l’aménagement de van artisanal en Suisse.',
+
+    // Open Graph
+    ogTitle: 'Le Blog Van-Life | L’actualité de l’aménagement en Valais',
+    ogDescription: 'Astuces, tutoriels et reportages sur nos créations de vans sur-mesure.',
+    ogImage: '/images/news_hero.jpg', // Une image qui évoque le partage ou l'atelier
+    ogType: 'website',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Blog Van-Life | Conseils & Aménagements',
+    twitterDescription: 'Suivez nos aventures et apprenez-en plus sur l’aménagement de fourgons.',
+})
+
 
 const newsPosts = [
     {

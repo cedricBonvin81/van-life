@@ -5,7 +5,7 @@
       <NuxtImg 
         src="/images/manifeste_hero.jpg"
         class="absolute inset-0 w-full h-full object-cover opacity-70 scale-105 animate-slow-zoom"
-        alt="un homme debout sur le van et regarde l'horizon" 
+        alt="van aménagé sur-mesure avec vue sur les montagnes du Valais" 
         fetchpriority="high" 
         size="1200"
         format="webp" 
@@ -42,7 +42,7 @@
           <p>
             <span class="text-7xl font-black text-primary float-left mr-4 leading-[0.8]">N</span>ous passons notre
             existence à mesurer le confort au nombre de mètres carrés. Mais qui a décrété qu'une vie réussie devait être
-            sédentaire ? La van-life est une <strong>insurrection douce</strong> contre le béton. C'est réaliser que
+            sédentaire ? La van-life est une <span class="font-bold">insurrection douce</span> contre le béton. C'est réaliser que
             votre salon ne s'arrête pas au pas de votre porte, mais qu'il s'étend jusqu'aux crêtes du Valais et au-delà
             des plaines infinies.
           </p>
@@ -60,7 +60,7 @@
         class="image-reveal w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] my-32 h-[70vh] overflow-hidden">
         <NuxtImg src="/images/manifeste_1.jpg" format="webp" loading="lazy"
           class="w-full h-full object-cover transition-transform duration-[3000ms] hover:scale-110"
-          alt="Intérieur Van avec vu sur la mer" />
+          alt="Aménagement intérieur bois sur mesure van life Valais" />
         <div class="absolute inset-0 bg-black/10"></div>
       </div>
 
@@ -76,8 +76,8 @@
             que vous lancez le réchaud. Le bruit de l'eau qui bout, l'odeur du café qui envahit l'habitacle de bois...
           </p>
           <p>
-            À cet instant, vous n'êtes pas un employé ou un citoyen ; vous êtes simplement un <strong>être humain face
-              au monde</strong>. Ce premier café, bu assis sur le marche-pied face au brouillard qui se lève sur la
+            À cet instant, vous n'êtes pas un employé ou un citoyen ; vous êtes simplement un <span class="font-bold">être humain face
+              au monde</span>. Ce premier café, bu assis sur le marche-pied face au brouillard qui se lève sur la
             vallée, vaut toutes les méditations du monde. C'est une reconquête du temps. Personne ne vous attend, hormis
             la route.
           </p>
@@ -92,14 +92,14 @@
         <div class="chapter-text text-xl leading-relaxed text-slate-700 space-y-8 font-light italic">
           <p>
             Pourquoi ce mode de vie fascine-t-il autant aujourd'hui ? Parce qu'il efface les étiquettes. On ne réserve
-            pas, on ne planifie plus, on <strong>ressent</strong>. On suit la météo, on suit son instinct. C'est
+            pas, on ne planifie plus, on <span class="font-bold">ressent</span>. On suit la météo, on suit son instinct. C'est
             retrouver une forme de sauvagerie nécessaire, un retour à l'état de nomade que nous avons été pendant des
             millénaires.
           </p>
           <p>
             On ne conduit pas un van, on dérive avec lui. On réapprend la patience. La patience d'attendre que la pluie
             cesse pour sortir les chaises de camping. Et paradoxalement, dans cette restriction d'espace, on découvre
-            une <strong>expansion infinie de l'esprit</strong>. On réalise que l'on n'a pas besoin de posséder le monde,
+            une <span class="font-bold">expansion infinie de l'esprit</span>. On réalise que l'on n'a pas besoin de posséder le monde,
             il suffit de savoir l'habiter.
           </p>
         </div>
@@ -163,12 +163,12 @@
           </p>
           <p>
             On redécouvre que l'obscurité n'est pas effrayante, elle est protectrice. Dans votre cocon isolé, chauffé
-            par la chaleur du bois et de la laine, vous êtes au cœur de l'élément. Cette <strong>intelligence
-              sensorielle</strong>, nous l'avions perdue dans nos appartements climatisés. Le van nous la rend.
+            par la chaleur du bois et de la laine, vous êtes au cœur de l'élément. Cette <span class="font-bold">intelligence
+              sensorielle</span>, nous l'avions perdue dans nos appartements climatisés. Le van nous la rend.
           </p>
           <p>
             Chaque craquement de la structure, chaque souffle d'air devient une information. Vous savez quand le vent
-            tourne, vous sentez l'orage avant qu'il ne gronde. C'est une <strong>vulnérabilité choisie</strong> qui rend
+            tourne, vous sentez l'orage avant qu'il ne gronde. C'est une <span class="font-bold">vulnérabilité choisie</span> qui rend
             chaque seconde plus vibrante.
           </p>
         </div>
@@ -202,6 +202,7 @@
 
             <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
               <AppButton to="/contact" variant="primary" size="lg"
+                title="Demander un devis d'aménagement van"
                 class="!rounded-none px-12 py-5 tracking-widest uppercase">
                 Lancer mon projet
               </AppButton>
@@ -225,6 +226,15 @@ import { onMounted } from 'vue'
 import { useAnimations } from '~/composables/useAnimations'
 
 definePageMeta({ layout: 'blog' })
+
+useSeoMeta({
+  title: 'Manifeste Van-Life | Aménagement Artisanal en Valais',
+  description: 'Artisan menuisier spécialisé dans l’aménagement de vans sur-mesure. Qualité suisse.',
+  ogTitle: 'Manifeste Van-Life | L’Art de l’Aménagement Artisanal en Valais',
+  ogDescription: 'Découvrez notre vision de l’aménagement de van en Suisse. Travail du bois et autonomie.',
+  ogImage: '/images/manifeste_hero.jpg', // Prépare une belle image dans ton dossier public/images
+  twitterCard: 'summary_large_image',
+})
 
 const chapters = []
 const reveals = []

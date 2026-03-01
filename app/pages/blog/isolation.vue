@@ -35,13 +35,28 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useAnimations } from '~/composables/useAnimations'
 
 
 definePageMeta({
     layout: 'blog'
+})
+
+useSeoMeta({
+    // Titre : On vise le problème du client (le froid/le chaud) et ta solution
+    title: 'Isolation de Van en Valais | Liège & Laine de Mouton | Van-Life',
+    description: 'Une isolation thermique et phonique performante pour votre van. Utilisation de différents matériaux  pour affronter les hivers suisses.',
+
+    // Open Graph (Réseaux sociaux)
+    ogTitle: 'Comment bien isoler son van pour l’hiver ? Nos techniques artisanales',
+    ogDescription: 'Découvrez nos solutions d’isolation écologique et performante adaptées au climat de montagne.',
+    ogImage: '/images/isolation_armaflex.png', // Une photo de liège projeté ou de laine posée
+    ogType: 'article',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Isolation Van-Life | Confort Thermique en Suisse',
+    twitterDescription: 'Matériaux sains et techniques artisanales pour isoler votre fourgon.',
 })
 
 const themeColor = "#0891b2" // Cyan-600 de Tailwind, tu peux ajuster selon ta palette

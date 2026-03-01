@@ -1,0 +1,66 @@
+{
+    "slug": "arolla",
+    "name": "Arolla de malade",
+    "vehicleType": "Mercedes Sprinter L2H2",
+    "location": "Hérens, Suisse",
+    "year": "2025",
+    "intro": "L'aventure sans compromis sur le confort.",
+    "fullStory": "Le projet Arolla a été conçu pour un couple de photographes souhaitant vivre à l'année sur les routes. Nous avons privilégié un immense plan de travail en chêne et une salle d'eau escamotable pour maximiser l'espace de vie tout en gardant une esthétique brute et minérale.",
+    "ownerNames": "Sophie et Pierre",
+    "ownerQuote": "Nous rêvions d'un van qui soit à la fois un refuge chaleureux et un outil de travail performant. L'équipe a su comprendre notre vision et la transformer en réalité, avec une attention incroyable aux détails.",
+    "mainImage": "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1920&auto=format&fit=crop",
+    "gallery": [
+        {
+            "url": "https://images.unsplash.com/photo-1534080564607-c9275445f29c?q=80&w=1200&auto=format&fit=crop",
+            "caption": "Le poste de pilotage et l'alcôve"
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1464851707681-f9d5fdaccea8?q=80&w=800&auto=format&fit=crop",
+            "caption": "Détails du bois brûlé"
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1527549993586-dff825b37782?q=80&w=1200&auto=format&fit=crop",
+            "caption": "Vue panoramique depuis le lit"
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1493246507139-91e8bef99c02?q=80&w=1200&auto=format&fit=crop",
+            "caption": "Cuisine tout équipée"
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1200&auto=format&fit=crop",
+            "caption": "Rangements sur mesure"
+        }
+    ],
+    "techDetails": [
+        {
+            "title": "Places Route",
+            "content": "2 places grand confort",
+            "icon": "heroicons:user"
+        },
+        {
+            "title": "Couchages",
+            "content": "Lit fixe 160x190cm",
+            "icon": "heroicons:moon"
+        },
+        {
+            "title": "Énergie",
+            "content": "400W Solaire + 300Ah Lithium",
+            "icon": "heroicons:bolt"
+        },
+        {
+            "title": "Eau",
+            "content": "120L propre / 60L usée",
+            "icon": "heroicons:beaker"
+        },
+        {
+            "title": "Isolation",
+            "content": "Laine de mouton locale",
+            "icon": "heroicons:shield-check"
+        },
+        {
+            "title": "Chauffage",
+            "content": "Truma Combi 4 (Eau + Air)",
+            "icon": "heroicons:sun"
+        }
+    ]
+}

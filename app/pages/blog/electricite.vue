@@ -80,6 +80,24 @@ const sections = [
     }       
 ]
 
+useSeoMeta({
+    // Titre : On mise sur l'autonomie et la sécurité
+    title: 'Électricité & Autonomie Solaire pour Van | Van-Life Valais',
+    description: 'Installation électrique sur-mesure pour votre van : batteries lithium, panneaux solaires et chargeurs DC-DC. Profitez d’une autonomie totale en pleine nature.',
+
+    // Open Graph
+    ogTitle: 'Autonomie Électrique en Van | Installation & Solaire',
+    ogDescription: 'Schémas électriques sécurisés et composants de qualité pour votre autonomie en fourgon aménagé.',
+    ogImage: '/images/electricite_batterie.webp', // Une photo propre d'un tableau électrique ou de batteries
+    ogType: 'article',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Électricité Van-Life | Énergie & Solaire',
+    twitterDescription: 'Installation de systèmes électriques fiables pour voyager en toute autonomie.',
+})
+
+
 // ANIMATIONS
 const { blogPage } = useAnimations()
 

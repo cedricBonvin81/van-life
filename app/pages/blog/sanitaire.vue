@@ -31,9 +31,6 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 definePageMeta({
     layout: 'blog'
@@ -71,6 +68,23 @@ const sections = [
         features: ['Évacuation gravitaire', 'Siphon anti-odeur']
     },
 ]
+
+useSeoMeta({
+    // Titre : On regroupe tout ce qui touche à l'eau
+    title: 'Circuit d’Eau & Sanitaires pour Van | Van-Life Valais',
+    description: 'Installation de systèmes d’eau complets pour votre van : réservoirs, pompes, éviers et solutions de toilettes sèches. Une gestion de l’eau simple et efficace.',
+
+    // Open Graph
+    ogTitle: 'Gestion de l’Eau & Sanitaires en Van | Autonomie & Confort',
+    ogDescription: 'Installation de circuits d’eau propre et usée, douches extérieures et toilettes pour une autonomie totale en voyage.',
+    ogImage: '/images/sanitaire_reservoir.webp', // Une photo d'un bel évier ou de l'installation technique
+    ogType: 'article',
+
+    // X / WhatsApp / Telegram
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Sanitaires Van-Life | Eau & Hygiène en Fourgon',
+    twitterDescription: 'Solutions sur-mesure pour votre circuit d’eau et sanitaires en van.',
+})
 const { blogPage } = useAnimations()
 
 onMounted(() => {

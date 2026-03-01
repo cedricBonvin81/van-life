@@ -6,16 +6,9 @@
             <div
                 class="relative flex flex-col justify-center px-8 py-16 sm:px-12 lg:p-20 bg-slate-900 text-white overflow-hidden">
                 <div class="absolute inset-0">
-                    <NuxtImg 
-                        src="/images/contact.jpg" 
-                        alt="Atelier Van Life" 
-                        class="h-full w-full object-cover object-right opacity-30 grayscale" 
-                        format="webp" 
-                        quality="60"
-                        width="1200"
-                        sizes="sm:100vw md:100vw lg:1200px"
-                        loading="lazy"         
-                    />
+                    <NuxtImg src="/images/contact.jpg" alt="Atelier Van Life"
+                        class="h-full w-full object-cover object-right opacity-30 grayscale" format="webp" quality="60"
+                        width="1200" sizes="sm:100vw md:100vw lg:1200px" loading="lazy" />
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
                 </div>
 
@@ -30,10 +23,10 @@
                                 <Icon name="uil:map-marker" class="h-6 w-6" />
                             </dt>
                             <dd>
-                                <a href="https://goo.gl/maps/..." target="_blank"
-                                    class="hover:text-primary transition-colors leading-loose">
-                                    Rue Saint-Michel 25, <br />1966 La Place, Suisse
-                                </a>
+                                <span class="leading-loose text-slate-300">
+                                    Région de Sion / Savièse <br />
+                                    1966 La Place, Suisse
+                                </span>
                             </dd>
                         </div>
                         <div class="flex gap-x-5 items-center">
@@ -52,7 +45,7 @@
                                 <Icon name="uil:clock" class="h-6 w-6" />
                             </dt>
                             <dd class="leading-loose">
-                                <span class="text-slate-400">Lun - Ven : 08h00 - 18h00</span><br />
+                                <span class="text-slate-400">Lun - Ven : 09h00 - 18h00</span><br />
                                 <span
                                     class="text-[9px] italic text-primary underline underline-offset-4 decoration-primary/30">
                                     Sur rendez-vous uniquement
@@ -66,48 +59,44 @@
             <div class="bg-white px-6 py-12 lg:p-20">
                 <form @submit.prevent="submitForm" class="mx-auto max-w-xl space-y-10">
                     <div class="form-item group">
-                        <label
-                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors">
+                        <label for="full_name"
+                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors cursor-pointer">
                             Nom complet
                         </label>
-                        <input v-model="formData.name" type="text"
+                        <input id="full_name" v-model="formData.name" type="text" autocomplete="name"
                             class="mt-2 block w-full border-b border-slate-200 bg-transparent px-0 py-3 text-slate-900 outline-none focus:border-primary transition-all font-light"
                             placeholder="Votre nom" required />
                     </div>
 
                     <div class="form-item group">
-                        <label
-                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors">
+                        <label for="email_address"
+                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors cursor-pointer">
                             E-mail
                         </label>
-                        <input v-model="formData.email" type="email"
+                        <input id="email_address" v-model="formData.email" type="email" autocomplete="email"
                             class="mt-2 block w-full border-b border-slate-200 bg-transparent px-0 py-3 text-slate-900 outline-none focus:border-primary transition-all font-light"
                             placeholder="nom@exemple.ch" required />
                     </div>
 
                     <div class="form-item group">
-                        <label
-                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors">
+                        <label for="project_desc"
+                            class="block text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-primary transition-colors cursor-pointer">
                             Votre projet
                         </label>
-                        <textarea v-model="formData.message" rows="3"
+                        <textarea id="project_desc" v-model="formData.message" rows="3"
                             class="mt-2 block w-full border-b border-slate-200 bg-transparent px-0 py-3 text-slate-900 outline-none focus:border-primary transition-all font-light resize-none"
                             placeholder="Modèle du véhicule, besoins, calendrier..."></textarea>
                     </div>
-                    <!-- Sécuriti check -->
-                     <div style="display: none;" aria-hidden="true">
+
+                    <div style="display: none;" aria-hidden="true">
                         <label for="secondary_phone">Ne pas remplir ce champ si vous êtes humain</label>
                         <input v-model="securityCheck" id="secondary_phone" type="text" name="secondary_phone"
                             tabindex="-1" autocomplete="off">
                     </div>
 
                     <div class="flex items-center justify-center gap-3">
-                        <AppButton
-                         type="submit" 
-                         variant="secondary" 
-                         size="lg" 
-                         :loading="loading" 
-                         class="w-full !font-mono !uppercase !tracking-[0.4em]">
+                        <AppButton type="submit" variant="secondary" size="lg" :loading="loading"
+                            class="w-full !font-mono !uppercase !tracking-[0.4em]">
                             Envoyer ma demande
                             <Icon v-if="!loading" name="ph:paper-plane-tilt-light" class="text-xl" />
                         </AppButton>

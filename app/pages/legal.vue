@@ -96,11 +96,11 @@
 </template>
 
 <script setup>
-// Configuration SEO spécifique pour cette page
+// Pour le légal, on reste minimaliste et on cache la page aux robots
 useHead({
-    title: 'Mentions Légales & Confidentialité — Van-Life.ch',
+    title: 'Mentions Légales | Van-Life.ch',
     meta: [
-        { name: 'robots', content: 'noindex, nofollow' } // Pas besoin que cette page pollue tes résultats de recherche
+        { name: 'robots', content: 'noindex, nofollow' }
     ]
 })
 </script>
