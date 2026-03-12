@@ -2,8 +2,15 @@
     <section class="gallery-2  relative w-full h-[85vh] overflow-hidden bg-slate-900 flex items-center justify-center">
 
         <div class="absolute inset-0 w-full h-full scale-125 divider-img-container text-white">
-            <img src="https://picsum.photos/id/443/1920/1080"
-                class="w-full h-full object-cover opacity-50 grayscale-[20%]" alt="L'esprit du voyage en van" />
+            <NuxtImg 
+                class="w-full h-full object-cover opacity-50 grayscale-[20%]"
+                src="/images/index_espace.jpg"
+                sizes="xs:100vw sm:100vw md:100vw lg:100vw"
+                format="webp" 
+                quality="60" 
+                loading="lazy" 
+                alt="un van sur-mesure parcé sur une plage" 
+            />
         </div>
 
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900/80"></div>

@@ -15,9 +15,17 @@
                 </p>
                 <!-- IMAGE GAUCHE -->
                 <div class="hidden md:block mt-12 w-full h-64 lg:h-80 overflow-hidden shadow-lg img-new-left">
-                    <NuxtImg src="https://picsum.photos/id/1015/800/600"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                        alt="Ambiance voyage" />
+                    <NuxtImg src="/images/index_main.jpeg"
+                        class="w-full h-full object-cover"
+                        sizes="sm:500px" 
+                        format="webp" 
+                        quality="80" 
+                        loading="lazy"
+                        alt="une personne qui fait un coeur avec ses mains, soleil dans le coeur " />
+                    <!-- le flou -->
+                    <div class="absolute inset-0 pointer-events-none shadow-[inset_0px_0px_60px_30px_rgba(15,23,42,0.8)]"></div>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-slate-900/40 via-transparent to-slate-900/40"></div>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-slate-900/40 via-transparent to-slate-900/40"> </div>
                 </div>
             </div>
 
@@ -26,28 +34,34 @@
                     <!-- IMAGE MAIN -->
                     <div
                         class="w-full h-[400px]  md:h-[800px] overflow-hidden relative md:absolute md:top-20 shadow-2xl img-main">
-                        <NuxtImg src="https://picsum.photos/id/443/1200/1500"
-                            class="w-full h-full object-cover scale-110" />
+                        <NuxtImg src="/images/index_coeur.jpg"
+                            class="w-full h-full object-cover scale-110" 
+                            sizes="sm:500px" 
+                            format="webp" 
+                            quality="80" 
+                            loading="lazy"
+                            alt="vue sur la mer depuis l'intérieur du van sur-mesure. "
+                            />
                     </div>
                     <!-- IMAGE BAS -->
-                    <div
+                    <!-- <div
                         class="absolute z-40 -bottom-44 md:-bottom-64 left-4   md:right-0 w-56 md:w-80 h-96 md:h-[450px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border-8 border-white img-detail-1">
                         <NuxtImg src="https://picsum.photos/id/31/800/1000" class="w-full h-full object-cover" />
                         <div
                             class="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-white/90 px-2 py-1 md:px-4 md:py-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-slate-900 shadow-sm">
                             Matière
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- IMAGE HAUT DROITE -->
-                <div
+                <!-- <div
                     class="hidden xl:block absolute z-20 top-10 right-0 md:right-4 w-40 md:w-96 h-56 md:h-72 overflow-hidden shadow-2xl border-8 border-white img-detail-2">
                     <NuxtImg src="https://picsum.photos/id/2/600/800" class="w-full h-full object-cover" />
                     <div
                         class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 shadow-sm">
                         Précision
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
