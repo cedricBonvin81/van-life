@@ -7,7 +7,7 @@
           <div class="lg:sticky lg:top-32 reveal-left">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-8 h-px bg-primary"></div>
-              <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">Expertise</span>
+              <span class="font-mono text-[12px] uppercase tracking-[0.3em] text-slate-400">Expertise</span>
             </div>
 
             <h2 class="text-3xl md:text-4xl font-light leading-tight text-slate-900 mb-16">
@@ -15,11 +15,11 @@
             </h2>
 
             <div class="hidden lg:block border-t border-slate-100 pt-10">
-              <h4 class="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-8">Services & Engagements
+              <h4 class="font-mono text-[12px] uppercase tracking-widest text-slate-400 mb-8">Services & Engagements
               </h4>
               <ul class="space-y-6">
                 <li
-                  v-for="service in ['Conception 3D', 'Homologation VASP', 'Menuiserie Artisanale', 'Électricité & Autonomie']"
+                  v-for="service in ['Conception 3D sur mesure', 'Expertise & Normes Suisse', 'Menuiserie Artisanale', 'Électricité & Autonomie']"
                   :key="service"
                   class="text-xs uppercase tracking-widest text-slate-500 flex justify-between items-center group/item">
                   <span>{{ service }}</span>
@@ -70,20 +70,20 @@
 
 const reasons = [
   {
-    title: "Écoute & Singularité",
-    description: "Chaque projet commence par une page blanche. Nous ne dupliquons pas de concepts ; nous traduisons vos besoins et l'âme du voyage en une architecture mobile unique."
+    title: "Écoute & Personnalisation",
+    description: "Tout commence par un échange. Que vous partiez d'une page blanche ou d'une idée précise, nous adaptons notre savoir-faire à vos besoins pour créer un aménagement qui vous ressemble. Nous concevons votre architecture mobile, sur-mesure."
   },
   {
-    title: "Maîtrise de la Matière",
-    description: "Bois locaux, isolants naturels, finitions artisanales. Nous privilégions les matériaux authentiques pour garantir un refuge sain et robuste."
+    title: "Qualité & Matériaux",
+    description: "Notre expertise, c’est avant tout le geste et la technique de pose. Pour le reste, on ne vous impose rien : le choix des matériaux se fait ensemble, selon vos envies et votre budget. On est là pour vous conseiller et s'assurer que, peu importe votre choix, l'aménagement est solide et bien fini."
   },
   {
-    title: "Précision de l'Atelier",
-    description: "Dans un van, chaque centimètre compte. Du tracé numérique à la pose manuelle, nous assurons un ajustement millimétré pour un confort optimal."
+    title: "Notre savoir-faire",
+    description: "C’est ici que le métier d’artisan prend tout son sens. Un van est un défi technique : il faut intégrer tout le confort d'une maison dans un espace restreint. On s'occupe de tout l'aménagement, de la structure aux installations techniques, avec un seul objectif : que ce soit simple à utiliser et construit pour durer."
   },
   {
     title: "Respect des Engagements",
-    description: "Transparence sur les coûts et suivi rigoureux de l'homologation VASP. Nous gérons la technique pour que vous n'ayez que le plaisir de rouler."
+    description: "On est transparent sur les coûts et rigoureux sur les normes. On gère toute la partie technique et administrative pour l'expertise au SAN, pour que vous n'ayez que le plaisir de rouler dans un véhicule en règle."
   }
 ]
 </script>
